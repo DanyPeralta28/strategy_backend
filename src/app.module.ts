@@ -20,7 +20,7 @@ import { IMySQLConfiguration } from './config/interfaces/env.interface';
       load: [EnvConfiguration],
       validationSchema: JoiValidationSchema,
     }),
-    TypeOrmModule.forRootAsync({
+    TypeOrmModule.forRootAsync({ 
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
