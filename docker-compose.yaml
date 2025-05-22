@@ -1,0 +1,27 @@
+version: '3'
+# api
+services:
+  template-nest-api:
+    env_file: .env
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: serviciosnuevos/apitemplate:latest
+    # image: template-nest-docker
+    container_name: template-nest-api
+    restart: always # reiniciar el contenedor si se detiene
+    ports:
+      - ${PORT}:${PORT}
+    environment:
+      DEFAULT_LIMIT: ${DEFAULT_LIMIT}
+      DEFAULT_OFFSET: ${DEFAULT_OFFSET}
+    volumes:
+      - ./log:/usr/src/app/log
+    networks:
+      - api_nestjs
+# se confirman los volumenes
+volumes:
+  log:
+# se configura la network
+networks:
+  api_nestjs:

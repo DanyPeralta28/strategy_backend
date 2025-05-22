@@ -1,0 +1,24 @@
+    {
+                    "registros": [
+                        {
+                            "id": "ERR-001",
+                            "active": true,
+                            "description": "Error #1"
+                        },
+                        {
+                            "id": "ERR-002",
+                            "active": true,
+                            "description": "Error 2"
+                        },
+                        {
+                            "id": "ERR-003",
+                            "active": true,
+                            "description": "Error 3"
+                        },
+                        {
+                            "id": "23505",
+                            "active": false,
+                            "description": "Registro existe en la BD"
+                        }
+                    ]
+    }
