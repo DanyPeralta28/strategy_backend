@@ -11,6 +11,7 @@ import { JoiValidationSchema } from './config/joi.validation';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { IMySQLConfiguration } from './config/interfaces/env.interface';
+import { FormatProfitPerxModule } from './features/opsp/format-profit-perx/format-profit-perx.module';
 
 @Module({
   controllers: [AppController],
@@ -34,7 +35,7 @@ import { IMySQLConfiguration } from './config/interfaces/env.interface';
           password: mysqlConfig.password,
           database: mysqlConfig.database,
           entities: [__dirname + '/**/*.entity{.ts,.js}'],
-          synchronize: true,
+          synchronize: false,
           retryAttempts: 3,
           retryDelay: 3000,
         };
@@ -45,6 +46,7 @@ import { IMySQLConfiguration } from './config/interfaces/env.interface';
     }),
     CommonModule,
     FeaturesModule,
+    FormatProfitPerxModule,
   ],
 })
 export class AppModule {}
