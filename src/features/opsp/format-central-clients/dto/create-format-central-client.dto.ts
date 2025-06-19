@@ -54,10 +54,6 @@ export class CreateFormatCentralClientDto {
   @IsString()
   key_needs_from_us: string;
 
-  @ApiProperty({ example: 'Ana Morales' })
-  @IsString()
-  core_client_name: string;
-
   @ApiProperty({ example: 'Ejecutiva de ventas, con enfoque en crecimiento personal' })
   @IsString()
   core_client_summary: string;

@@ -14,6 +14,7 @@ import { FormatCompetenciesModule } from './opsp/format-competencies/format-comp
 import { FormatKpiBalancesModule } from './opsp/format-kpi-balances/format-kpi-balances.module';
 import { FormatTerritoriesModule } from './opsp/format-territories/format-territories.module';
 import { FormatCulturesModule } from './opsp/format-cultures/format-cultures.module';
+import { FormatBhagModule } from './opsp/format-bhag/format-bhag.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { FormatCulturesModule } from './opsp/format-cultures/format-cultures.mod
     FormatCompetenciesModule,
     FormatKpiBalancesModule,
     FormatTerritoriesModule,
-    FormatCulturesModule
+    FormatCulturesModule,
+    FormatBhagModule
   ]
 })
 export class FeaturesModule { }

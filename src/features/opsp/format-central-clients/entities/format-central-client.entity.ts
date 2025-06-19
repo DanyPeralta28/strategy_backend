@@ -59,10 +59,6 @@ export class FormatCentralClient {
   @Column({ length: 1000, nullable: true })
   key_needs_from_us: string;
 
-  @ApiProperty({ example: 'Ana Morales' })
-  @Column({ length: 250, nullable: true })
-  core_client_name: string;
-
   @ApiProperty({ example: 'Ejecutiva de ventas, con enfoque en crecimiento personal' })
   @Column({ length: 1000, nullable: true })
   core_client_summary: string;

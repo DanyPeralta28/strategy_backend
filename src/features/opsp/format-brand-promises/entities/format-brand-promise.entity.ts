@@ -9,9 +9,6 @@ export class FormatBrandPromise {
   id_company: string;
 
   @Column({ length: 1000, nullable: false })
-  core_client_description: string;
-
-  @Column({ length: 1000, nullable: false })
   primary_promise: string;
 
   @Column({ length: 1000, nullable: false })

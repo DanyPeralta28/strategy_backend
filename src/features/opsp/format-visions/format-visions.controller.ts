@@ -1,21 +1,5 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Param,
-  Put,
-  Delete,
-  ParseIntPipe,
-  Query,
-} from '@nestjs/common';
-import {
-  ApiTags,
-  ApiOperation,
-  ApiResponse,
-  ApiParam,
-  ApiQuery,
-} from '@nestjs/swagger';
+import {Controller,Get,Post,Body,Param,Put,Delete,ParseIntPipe,Query,} from '@nestjs/common';
+import {ApiTags,ApiOperation,ApiResponse,ApiParam,ApiQuery,} from '@nestjs/swagger';
 import { FormatVisionsService } from './format-visions.service';
 import { CreateFormatVisionDto } from './dto/create-format-vision.dto';
 import { UpdateFormatVisionDto } from './dto/update-format-vision.dto';

@@ -6,10 +6,6 @@ export class CreateFormatBrandPromiseDto {
   @IsString()
   id_company: string;
 
-  @ApiProperty({ example: 'Cliente que busca rapidez y confianza' })
-  @IsString()
-  core_client_description: string;
-
   @ApiProperty({ example: 'Rapidez garantizada' })
   @IsString()
   primary_promise: string;

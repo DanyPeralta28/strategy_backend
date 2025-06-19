@@ -9,11 +9,8 @@ export class FormatVision {
   core_values: string;
 
   @Column({ length: 250 })
-  purpose: string;
-
-  @Column({ length: 250 })
   brand_promises: string;
-
+    
   @Column({ length: 250 })
   strategic_priorities_1_year: string;
 
@@ -97,9 +94,6 @@ export class FormatVision {
 
   @Column({ length: 100 })
   game_red_2: string;
-
-  @Column({ length: 250 })
-  bhag: string;
 
   @Column({ type: 'int' })
   status: number;

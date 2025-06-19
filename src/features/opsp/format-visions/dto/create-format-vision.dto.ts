@@ -1,12 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {
-  IsNotEmpty,
-  IsString,
-  IsInt,
-  IsDate,
-  MaxLength,
-  IsDateString,
-} from 'class-validator';
+import {IsNotEmpty,IsString,IsInt,IsDate,MaxLength,IsDateString,} from 'class-validator';
 
 export class CreateFormatVisionDto {
   @ApiProperty({
@@ -17,15 +10,6 @@ export class CreateFormatVisionDto {
   @IsNotEmpty()
   @MaxLength(250)
   core_values: string;
-
-  @ApiProperty({
-    example: 'Empower through strategy',
-    description: 'Purpose of the company',
-  })
-  @IsString()
-  @IsNotEmpty()
-  @MaxLength(250)
-  purpose: string;
 
   @ApiProperty({
     example: 'Delivering exceptional value',
@@ -193,11 +177,6 @@ export class CreateFormatVisionDto {
   @IsString()
   @MaxLength(100)
   game_red_2: string;
-
-  @ApiProperty({ example: 'Be #1 strategy partner in LatAm by 2030' })
-  @IsString()
-  @MaxLength(250)
-  bhag: string;
 
   @ApiProperty({ example: 1 })
   @IsInt()

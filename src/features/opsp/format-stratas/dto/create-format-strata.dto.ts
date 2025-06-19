@@ -61,18 +61,6 @@ export class CreateFormatStrataDto {
   @IsOptional()
   factor_x_advantage?: string;
 
-  @ApiProperty({ example: 'Utilidad por proyecto' })
-  @IsString()
-  @MaxLength(500)
-  @IsOptional()
-  profit_per_x?: string;
-
-  @ApiProperty({ example: 'Ser líderes en LatAm en 2030' })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  bhag_long_goal?: string;
-
   @ApiProperty({ example: 1 })
   @IsInt()
   @IsOptional()

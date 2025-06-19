@@ -35,12 +35,6 @@ export class FormatStrata {
   @Column({ length: 1000, nullable: true })
   factor_x_advantage: string;
 
-  @Column({ length: 500, nullable: true })
-  profit_per_x: string;
-
-  @Column({ length: 1000, nullable: true })
-  bhag_long_goal: string;
-
   @Column({ type: 'int', default: 1 })
   status: number;
 
