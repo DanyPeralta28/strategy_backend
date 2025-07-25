@@ -1,4 +1,4 @@
-import { IsString, MaxLength, IsObject, IsOptional } from 'class-validator';
+import { IsString, MaxLength, IsOptional, IsObject } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatKpiBalanceDto {
@@ -7,34 +7,42 @@ export class CreateFormatKpiBalanceDto {
   @MaxLength(50)
   id_company: string;
 
-  @ApiProperty({ example: { engagement: 85, satisfaction: 90 } })
+  @ApiProperty({
+    description: 'Grouped KPI data by area',
+    type: 'object',
+    example: {
+      employees: [
+        { kpi: 'Engagement', result: '85%', color: 'light-green' },
+        { kpi: 'Satisfaction', result: '90%', color: 'light-green' },
+      ],
+      customers: [
+        { kpi: 'Loyalty', result: '80%', color: 'yellow' },
+        { kpi: 'Referrals', result: '60%', color: 'red' },
+      ],
+      shareholders: [
+        { kpi: 'Dividends', result: '50%', color: 'red' },
+        { kpi: 'Growth', result: '70%', color: 'light-green' },
+      ],
+      training: [
+        { kpi: 'Programs', result: '3', color: 'light-green' },
+        { kpi: 'Hours', result: '120', color: 'dark-green' },
+      ],
+      sales: [
+        { kpi: 'Campaigns', result: '5', color: 'yellow' },
+        { kpi: 'Conversion Rate', result: '20%', color: 'red' },
+      ],
+      administration: [
+        { kpi: 'Cost Efficiency', result: '92%', color: 'dark-green' },
+        { kpi: 'Process Time', result: '15 min', color: 'light-green' },
+      ],
+    },
+  })
   @IsObject()
-  employee_balance: object;
+  kpis: any;
 
-  @ApiProperty({ example: { loyalty: 80, referrals: 60 } })
-  @IsOptional()
-  @IsObject()
-  customer_balance?: object;
-
-  @ApiProperty({ example: { dividends: 50, growth: 70 } })
-  @IsOptional()
-  @IsObject()
-  shareholder_balance?: object;
-
-  @ApiProperty({ example: { programs: 3, hours: 120 } })
-  @IsOptional()
-  @IsObject()
-  training_balance?: object;
-
-  @ApiProperty({ example: { campaigns: 5, conversion: 20 } })
-  @IsOptional()
-  @IsObject()
-  sales_marketing_balance?: object;
-
-  @ApiProperty({ example: { cost_efficiency: 92 } })
-  @IsOptional()
-  @IsObject()
-  administration_balance?: object;
+  @ApiProperty({ example: '2025-07-31', description: 'KPI evaluation date' })
+  @IsString()
+  compliance_date: string;
 
   @ApiProperty({ example: 'admin_user' })
   @IsString()

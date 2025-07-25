@@ -5,22 +5,23 @@ export class FormatFdt {
   @PrimaryGeneratedColumn({ name: 'fdt_id' })
   id: number;
 
-  @Column({ length: 50, nullable: true })
+  @Column({ length: 50 })
   id_company: string;
 
-  @Column({ length: 2000, nullable: true })
-  global_trends_impact: string;
+  /*  Las tres columnas cambiaron a tipo JSON  */
+  @Column({ type: 'json', nullable: true })
+  global_trends_impact: any;
 
-  @Column({ length: 2000, nullable: true })
-  core_strengths: string;
+  @Column({ type: 'json', nullable: true })
+  core_strengths: any;
 
-  @Column({ length: 2000, nullable: true })
-  core_weaknesses: string;
+  @Column({ type: 'json', nullable: true })
+  core_weaknesses: any;
 
   @Column({ type: 'int', default: 1 })
   status: number;
 
-  @Column({ length: 100, nullable: true })
+  @Column({ length: 100 })
   created_by: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

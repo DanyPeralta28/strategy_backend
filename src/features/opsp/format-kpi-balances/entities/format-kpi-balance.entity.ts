@@ -35,6 +35,10 @@ export class FormatKpiBalance {
   @Column({ type: 'json', nullable: true })
   administration_balance: any;
 
+  @ApiProperty()
+  @Column({ type: 'date' })
+  compliance_date: Date;
+
   @ApiProperty({ example: 1 })
   @Column({ type: 'int', default: 1 })
   status: number;

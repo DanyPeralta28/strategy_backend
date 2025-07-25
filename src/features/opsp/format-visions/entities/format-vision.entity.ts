@@ -5,71 +5,32 @@ export class FormatVision {
   @PrimaryGeneratedColumn({ name: 'vision_id' })
   id: number;
 
+  @Column({ length: 50 })
+  id_company: string;
+
   @Column({ length: 250 })
   core_values: string;
 
   @Column({ length: 250 })
   brand_promises: string;
-    
-  @Column({ length: 250 })
-  strategic_priorities_1_year: string;
 
-  @Column({ length: 250 })
-  strategic_priorities_3_to_5_years: string;
+  @Column({ type: 'json', nullable: true })
+  strategic_priorities_1_year: any;
 
-  @Column({ length: 250 })
-  strategic_priorities_trimester: string;
+  @Column({ type: 'json', nullable: true })
+  strategic_priorities_3_to_5_years: any;
+
+  @Column({ type: 'json', nullable: true })
+  strategic_priorities_trimester: any;
 
   @Column({ length: 100 })
   user_name: string;
 
-  @Column({ length: 250 })
-  kpi_description_1: string;
+  @Column({ type: 'json', nullable: true })
+  kpi_list: any;
 
-  @Column({ length: 100 })
-  kpi_target_1: string;
-
-  @Column({ length: 250 })
-  kpi_description_2: string;
-
-  @Column({ length: 100 })
-  kpi_target_2: string;
-
-  @Column({ length: 250 })
-  kpi_description_3: string;
-
-  @Column({ length: 100 })
-  kpi_target_3: string;
-
-  @Column({ length: 500 })
-  priority_description_1: string;
-
-  @Column({ length: 50 })
-  priority_deadline_1: string;
-
-  @Column({ length: 500 })
-  priority_description_2: string;
-
-  @Column({ length: 50 })
-  priority_deadline_2: string;
-
-  @Column({ length: 500 })
-  priority_description_3: string;
-
-  @Column({ length: 50 })
-  priority_deadline_3: string;
-
-  @Column({ length: 500 })
-  priority_description_4: string;
-
-  @Column({ length: 50 })
-  priority_deadline_4: string;
-
-  @Column({ length: 500 })
-  priority_description_5: string;
-
-  @Column({ length: 50 })
-  priority_deadline_5: string;
+  @Column({ type: 'json', nullable: true })
+  priority_list: any;
 
   @Column({ length: 100 })
   game_green_1: string;
@@ -95,7 +56,7 @@ export class FormatVision {
   @Column({ length: 100 })
   game_red_2: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', default: 1 })
   status: number;
 
   @Column({ length: 100 })
@@ -103,7 +64,4 @@ export class FormatVision {
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
-
-  @Column({ length: 50 })
-  id_company: string;
 }

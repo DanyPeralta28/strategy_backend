@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsOptional, IsString, MaxLength, IsInt } from 'class-validator';
+import {
+  IsOptional,
+  IsString,
+  MaxLength,
+  IsInt,
+  IsArray,
+} from 'class-validator';
 
 export class CreateFormatStrataDto {
   @ApiProperty({ example: 'BANRURAL_GT' })
@@ -7,55 +13,50 @@ export class CreateFormatStrataDto {
   @MaxLength(50)
   id_company: string;
 
-  @ApiProperty({ example: 'En mis palabras...' })
+  @ApiProperty({ example: 'En mis palabras: brindamos soluciones integrales.' })
   @IsString()
   @MaxLength(1000)
   @IsOptional()
   own_words?: string;
 
-  @ApiProperty({ example: 'Clientes que buscan...' })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  core_client_description?: string;
-
-  @ApiProperty({ example: 'Consultorías, capacitaciones...' })
+  @ApiProperty({ example: 'Consultoría estratégica, formación ejecutiva.' })
   @IsString()
   @MaxLength(1000)
   @IsOptional()
   products_and_services?: string;
 
-  @ApiProperty({ example: 'Guatemala, El Salvador...' })
+  @ApiProperty({ example: 'Guatemala, Honduras y El Salvador.' })
   @IsString()
   @MaxLength(500)
   @IsOptional()
   geographic_area?: string;
 
-  @ApiProperty({ example: 'Promesa 1: ... KPI: ...' })
-  @IsString()
-  @MaxLength(1000)
-  @IsOptional()
-  brand_promises_with_kpis?: string;
-
-  @ApiProperty({ example: 'Garantía de satisfacción...' })
+  @ApiProperty({ example: 'Devolución si no se cumplen los tiempos.' })
   @IsString()
   @MaxLength(1000)
   @IsOptional()
   brand_promise_guarantee?: string;
 
-  @ApiProperty({ example: 'Nos diferenciamos por...' })
+  @ApiProperty({ example: 'Simplificamos la transformación empresarial.' })
   @IsString()
   @MaxLength(1000)
   @IsOptional()
   strategy_one_liner?: string;
 
-  @ApiProperty({ example: 'Actividades distintas...' })
-  @IsString()
-  @MaxLength(1000)
+  @ApiProperty({
+    type: 'array',
+    example: [
+      { title: 'Capacitación exclusiva a socios', value: 'Mensual' },
+      { title: 'Auditorías semestrales de valor', value: 'Incluido' },
+      { title: '', value: '' },
+      { title: '', value: '' },
+    ],
+  })
+  @IsArray()
   @IsOptional()
-  diff_acitivities?: string;
+  diff_acitivities?: any[];
 
-  @ApiProperty({ example: 'Ventaja única X' })
+  @ApiProperty({ example: 'Expertise sectorial consolidado' })
   @IsString()
   @MaxLength(1000)
   @IsOptional()

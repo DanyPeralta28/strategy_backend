@@ -12,9 +12,35 @@ export class FormatKpiBalancesService {
     private readonly repo: Repository<FormatKpiBalance>,
   ) {}
 
+  /* ------------------------------------------------------------------
+   * Utils
+   * ------------------------------------------------------------------*/
+  /**
+   * Extract KPI areas from the grouped field 'kpis' into
+   * individual columns matching the entity.
+   */
+  private packKpis(kpis: any = {}): Partial<FormatKpiBalance> {
+    return {
+      employee_balance: kpis?.employees ?? null,
+      customer_balance: kpis?.customers ?? null,
+      shareholder_balance: kpis?.shareholders ?? null,
+      training_balance: kpis?.training ?? null,
+      sales_marketing_balance: kpis?.sales ?? null,
+      administration_balance: kpis?.administration ?? null,
+    };
+  }
+
+  /* ------------------------------------------------------------------
+   * CRUD
+   * ------------------------------------------------------------------*/
   async create(dto: CreateFormatKpiBalanceDto) {
     try {
-      const result = await this.repo.insert(dto);
+      const { kpis, ...rest } = dto;
+      const kpiPatch = this.packKpis(kpis);
+      const payload = { ...rest, ...kpiPatch };
+
+      const result = await this.repo.insert(payload);
+
       return {
         data: { id: result.identifiers[0].id },
         message: 'OK',
@@ -102,7 +128,11 @@ export class FormatKpiBalancesService {
         );
       }
 
-      await this.repo.update(id, dto);
+      const { kpis, ...rest } = dto;
+      const kpiPatch = this.packKpis(kpis);
+
+      await this.repo.update(id, { ...rest, ...kpiPatch });
+
       return {
         data: { id },
         message: 'OK',

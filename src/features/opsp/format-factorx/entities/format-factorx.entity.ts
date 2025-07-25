@@ -1,58 +1,63 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity('opsp_format_factor_x')
 export class FormatFactorX {
+  @ApiProperty({ example: 1 })
   @PrimaryGeneratedColumn({ name: 'factor_x_id' })
   id: number;
 
-  @Column({ length: 50, nullable: false })
+  @ApiProperty({ example: 'BANRURAL_GT' })
+  @Column({ length: 50 })
   id_company: string;
 
-  @Column({ type: 'json', nullable: false })
+  @ApiProperty({
+    example: [
+      { step_order: 1, step_label: 'Inicio', has_inefficiency: false, symbol: '' },
+      { step_order: 2, step_label: 'Recepción', has_inefficiency: true, symbol: '⚠️' },
+    ],
+  })
+  @Column({ type: 'json' })
   process_flow_steps: object;
 
-  @Column({ length: 1000, nullable: false })
-  bottleneck_1_description: string;
+  @ApiProperty({
+    example: [
+      {
+        description: 'Falta de insumos',
+        leader: 'Juan Pérez',
+        due_date: '2025-07-01',
+      },
+      {
+        description: 'Demora en presupuesto',
+        leader: 'Laura Gómez',
+        due_date: '2025-07-15',
+      },
+    ],
+  })
+  @Column({ type: 'json', nullable: true })
+  bottleneck_list: object;
 
-  @Column({ length: 100, nullable: false })
-  bottleneck_1_leader: string;
+  @ApiProperty({
+    example: [
+      {
+        name: 'Expo 10X Centroamérica',
+        leader: 'Ana López',
+        date: '2025-08-10',
+      },
+    ],
+  })
+  @Column({ type: 'json', nullable: true })
+  trade_action_list: object;
 
-  @Column({ type: 'date', nullable: false })
-  bottleneck_1_due_date: Date;
-
-  @Column({ length: 1000, nullable: false })
-  bottleneck_2_description: string;
-
-  @Column({ length: 100, nullable: false })
-  bottleneck_2_leader: string;
-
-  @Column({ type: 'date', nullable: false })
-  bottleneck_2_due_date: Date;
-
-  @Column({ length: 1000, nullable: false })
-  bottleneck_3_description: string;
-
-  @Column({ length: 100, nullable: false })
-  bottleneck_3_leader: string;
-
-  @Column({ type: 'date', nullable: false })
-  bottleneck_3_due_date: Date;
-
-  @Column({ length: 255, nullable: false })
-  trade_show_name: string;
-
-  @Column({ length: 150, nullable: false })
-  trade_show_leader: string;
-
-  @Column({ type: 'date', nullable: false })
-  trade_show_date: Date;
-
+  @ApiProperty({ example: 1 })
   @Column({ type: 'int', default: 1 })
   status: number;
 
-  @Column({ length: 100, nullable: false })
+  @ApiProperty({ example: 'admin_user' })
+  @Column({ length: 100 })
   created_by: string;
 
+  @ApiProperty()
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 }

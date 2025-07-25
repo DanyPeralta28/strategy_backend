@@ -19,10 +19,17 @@ export class CreateFormatCompetencyDto {
   @MaxLength(1000)
   competency_description?: string;
 
-  @ApiProperty({ example: ['Empathy', 'Active Listening', 'Problem Solving'] })
+  @ApiProperty({
+    description: 'Listado de competencias clave',
+    type: 'array',
+    example: [
+      { name: 'Empatía', description: 'Capacidad de ponerse en el lugar del otro' },
+      { name: 'Escucha activa', description: 'Atención plena al interlocutor' },
+    ],
+  })
   @IsOptional()
   @IsArray()
-  competencies_list?: string[];
+  competencies_list?: any[];
 
   @ApiProperty({ example: 'admin_user' })
   @IsString()

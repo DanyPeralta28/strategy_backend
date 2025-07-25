@@ -1,52 +1,83 @@
-import { IsString, IsNumber, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import {
+  IsOptional,
+  IsString,
+  IsArray,
+  IsObject,
+  ValidateNested,
+} from 'class-validator';
 
 export class CreateFormatGoalDto {
-  @ApiProperty({ example: '2025' })
+  @ApiProperty({ example: 'BANRURAL_GT' })
   @IsString()
-  fiscal_year: string;
-
-  @ApiProperty({ example: 'Q1' })
-  @IsString()
-  quarter: string;
-
-  @ApiProperty({ example: 'A' })
-  @IsString()
-  type: string;
-
-  @ApiProperty({ example: 1000000.00 })
-  @IsNumber()
-  revenue: number;
-
-  @ApiProperty({ example: 150000.00 })
-  @IsNumber()
-  profit: number;
-
-  @ApiProperty({ example: 45.25 })
-  @IsNumber()
-  gross_margin: number;
-
-  @ApiProperty({ example: 200000.00 })
-  @IsNumber()
-  cash: number;
-
-  @ApiProperty({ example: 30 })
-  @IsNumber()
-  days_receivable: number;
-
-  @ApiProperty({ example: 60 })
-  @IsNumber()
-  inventory_turnover_days: number;
-
-  @ApiProperty({ example: 75000.00 })
-  @IsNumber()
-  revenue_per_employee: number;
+  id_company: string;
 
   @ApiProperty({ example: 'admin_user' })
   @IsString()
   created_by: string;
 
-  @ApiProperty({ example: 'BANRURAL_GT' })
-  @IsString()
-  id_company: string;
+  @ApiProperty({
+    description: 'List of goal sections by period',
+    type: 'array',
+    required: false,
+    example: [
+      {
+        key: 'threeFiveYears',
+        values: [
+          { titulo: 'Año tributario', value: '2025' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+        ],
+      },
+      {
+        key: 'year',
+        values: [
+          { titulo: 'Año tributario', value: '2025' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+        ],
+      },
+      {
+        key: 'trimesterOne',
+        values: [
+          { titulo: 'Año tributario', value: '2025' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+        ],
+      },
+      {
+        key: 'trimesterTwo',
+        values: [
+          { titulo: 'Año tributario', value: '2025' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+        ],
+      },
+      {
+        key: 'trimesterThree',
+        values: [
+          { titulo: 'Año tributario', value: '2025' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+        ],
+      },
+      {
+        key: 'trimesterFour',
+        values: [
+          { titulo: 'Año tributario', value: '2025' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+          { titulo: '', value: '' },
+        ],
+      },
+    ],
+  })
+  @IsArray()
+  @IsOptional()
+  goal_sections?: any[];
 }

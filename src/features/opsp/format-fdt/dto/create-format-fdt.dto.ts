@@ -1,40 +1,64 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsOptional, IsInt, MaxLength } from 'class-validator';
+import {
+  IsString,
+  IsInt,
+  MaxLength,
+  IsArray,
+  ArrayNotEmpty,
+} from 'class-validator';
 
 export class CreateFormatFdtDto {
+  /* --- Clave de compañía --- */
   @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;
 
+  /* --- Tendencias globales --- */
   @ApiProperty({
-    example: 'Impacto de tendencias globales...',
     description: 'Global trends affecting the company',
+    type: 'array',
+    example: [
+      { trend: 'Digital transformation', impact: 'High' },
+      { trend: 'Sustainability', impact: 'Medium' },
+    ],
   })
-  @IsString()
-  @MaxLength(2000)
-  global_trends_impact: string;
+  @IsArray()
+  @ArrayNotEmpty()
+  global_trends_impact: any[];
 
+  /* --- Fortalezas --- */
   @ApiProperty({
-    example: 'Fortalezas principales...',
     description: 'Core strengths identified in the company',
+    type: 'array',
+    example: [
+      { strength: 'Brand reputation', importance: 'High' },
+      { strength: 'Customer loyalty', importance: 'Medium' },
+    ],
   })
-  @IsString()
-  @MaxLength(2000)
-  core_strengths: string;
+  @IsArray()
+  @ArrayNotEmpty()
+  core_strengths: any[];
 
+  /* --- Debilidades --- */
   @ApiProperty({
-    example: 'Debilidades encontradas...',
     description: 'Core weaknesses that limit performance',
+    type: 'array',
+    example: [
+      { weakness: 'High turnover', severity: 'High' },
+      { weakness: 'Legacy systems', severity: 'Medium' },
+    ],
   })
-  @IsString()
-  @MaxLength(2000)
-  core_weaknesses: string;
+  @IsArray()
+  @ArrayNotEmpty()
+  core_weaknesses: any[];
 
+  /* --- Estado --- */
   @ApiProperty({ example: 1, description: 'Status of the record' })
   @IsInt()
   status: number;
 
+  /* --- Usuario creador --- */
   @ApiProperty({
     example: 'admin_user',
     description: 'User that created the record',

@@ -12,6 +12,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { IMySQLConfiguration } from './config/interfaces/env.interface';
 import { FormatProfitPerxModule } from './features/opsp/format-profit-perx/format-profit-perx.module';
+import { ConsistentActionsModule } from './features/opsp/consistent-actions/consistent-actions.module';
 
 @Module({
   controllers: [AppController],
@@ -47,6 +48,7 @@ import { FormatProfitPerxModule } from './features/opsp/format-profit-perx/forma
     CommonModule,
     FeaturesModule,
     FormatProfitPerxModule,
+    ConsistentActionsModule,
   ],
 })
 export class AppModule {}

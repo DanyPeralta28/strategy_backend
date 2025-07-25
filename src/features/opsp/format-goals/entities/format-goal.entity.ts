@@ -7,59 +7,43 @@ export class FormatGoal {
   @PrimaryGeneratedColumn({ name: 'goals_id' })
   id: number;
 
-  @ApiProperty({ example: '2025' })
-  @Column({ length: 10, nullable: true })
-  fiscal_year: string;
+  @ApiProperty({ example: 'BANRURAL_GT' })
+  @Column({ length: 50 })
+  id_company: string;
 
-  @ApiProperty({ example: 'Q2' })
-  @Column({ length: 25, nullable: true })
-  quarter: string;
+  @ApiProperty({ type: 'object', description: 'Metas a 3–5 años' })
+  @Column({ type: 'json', nullable: true })
+  three_to_five_years: any;
 
-  @ApiProperty({ example: 'A', description: 'Type of goal (e.g. A, B, C)' })
-  @Column({ length: 1, nullable: true })
-  type: string;
+  @ApiProperty({ type: 'object', description: 'Metas a 1 año' })
+  @Column({ type: 'json', nullable: true })
+  one_year: any;
 
-  @ApiProperty({ example: 1200000.50 })
-  @Column({ type: 'decimal', precision: 15, scale: 2, nullable: true })
-  revenue: number;
+  @ApiProperty({ type: 'json', description: 'Trimestre 1' })
+  @Column({ type: 'json', nullable: true })
+  trimester_one: any;
 
-  @ApiProperty({ example: 150000.75 })
-  @Column({ type: 'decimal', precision: 15, scale: 2, nullable: true })
-  profit: number;
+  @ApiProperty({ type: 'json', description: 'Trimestre 2' })
+  @Column({ type: 'json', nullable: true })
+  trimester_two: any;
 
-  @ApiProperty({ example: 45.75 })
-  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
-  gross_margin: number;
+  @ApiProperty({ type: 'json', description: 'Trimestre 3' })
+  @Column({ type: 'json', nullable: true })
+  trimester_three: any;
 
-  @ApiProperty({ example: 500000.00 })
-  @Column({ type: 'decimal', precision: 15, scale: 2, nullable: true })
-  cash: number;
-
-  @ApiProperty({ example: 30 })
-  @Column({ type: 'int', nullable: true })
-  days_receivable: number;
-
-  @ApiProperty({ example: 60 })
-  @Column({ type: 'int', nullable: true })
-  inventory_turnover_days: number;
-
-  @ApiProperty({ example: 100000.00 })
-  @Column({ type: 'decimal', precision: 15, scale: 2, nullable: true })
-  revenue_per_employee: number;
+  @ApiProperty({ type: 'json', description: 'Trimestre 4' })
+  @Column({ type: 'json', nullable: true })
+  trimester_four: any;
 
   @ApiProperty({ example: 1 })
   @Column({ type: 'int', default: 1 })
   status: number;
 
   @ApiProperty({ example: 'admin_user' })
-  @Column({ length: 100, nullable: true })
+  @Column({ length: 100 })
   created_by: string;
 
-  @ApiProperty({  })
+  @ApiProperty()
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
-
-  @ApiProperty({ example: 'BANRURAL_GT' })
-  @Column({ length: 50, nullable: true })
-  id_company: string;
 }

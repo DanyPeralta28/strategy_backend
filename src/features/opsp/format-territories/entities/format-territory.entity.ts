@@ -11,9 +11,9 @@ export class FormatTerritory {
   @Column({ length: 50 })
   id_company: string;
 
-  @ApiProperty({ example: 'Western Highlands' })
-  @Column({ length: 250, nullable: true })
-  geographic_location: string;
+  @ApiProperty({ example: '' })
+  @Column({ type: 'json', nullable: true })
+  geographic_location: any[];
 
   @ApiProperty({ example: 1 })
   @Column({ type: 'int', default: 1 })

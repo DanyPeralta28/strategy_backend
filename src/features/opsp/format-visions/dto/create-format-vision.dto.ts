@@ -1,142 +1,60 @@
 import { ApiProperty } from '@nestjs/swagger';
-import {IsNotEmpty,IsString,IsInt,IsDate,MaxLength,IsDateString,} from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsInt,
+  MaxLength,
+  IsArray,
+  IsOptional,
+} from 'class-validator';
 
 export class CreateFormatVisionDto {
-  @ApiProperty({
-    example: 'Integrity, Innovation',
-    description: 'Core values of the organization',
-  })
+  @ApiProperty({ example: 'Integrity, Innovation' })
   @IsString()
   @IsNotEmpty()
   @MaxLength(250)
   core_values: string;
 
-  @ApiProperty({
-    example: 'Delivering exceptional value',
-    description: 'Main brand promises',
-  })
+  @ApiProperty({ example: 'Delivering exceptional value' })
   @IsString()
   @IsNotEmpty()
   @MaxLength(250)
   brand_promises: string;
 
-  @ApiProperty({
-    example: 'Expand to 3 new markets',
-    description: '1-year strategic priorities',
-  })
-  @IsString()
-  @MaxLength(250)
-  strategic_priorities_1_year: string;
-
-  @ApiProperty({
-    example: 'Be regional leader',
-    description: '3–5 year strategic priorities',
-  })
-  @IsString()
-  @MaxLength(250)
-  strategic_priorities_3_to_5_years: string;
-
-  @ApiProperty({
-    example: 'Launch new product',
-    description: 'Trimester priorities',
-  })
-  @IsString()
-  @MaxLength(250)
-  strategic_priorities_trimester: string;
-
-  @ApiProperty({ example: 'jdoe', description: 'Username of the creator' })
+  @ApiProperty({ example: 'jdoe' })
   @IsString()
   @MaxLength(100)
   user_name: string;
 
   @ApiProperty({
-    example: 'Client satisfaction rate',
-    description: 'First KPI description',
+    type: 'array',
+    example: [
+      { kpi: 'Client satisfaction', meta: '90%' },
+      { kpi: 'Lead conversion rate', meta: '15%' },
+    ],
   })
-  @IsString()
-  @MaxLength(250)
-  kpi_description_1: string;
-
-  @ApiProperty({ example: '90%', description: 'Target for KPI 1' })
-  @IsString()
-  @MaxLength(100)
-  kpi_target_1: string;
+  @IsArray()
+  kpi_list: any[];
 
   @ApiProperty({
-    example: 'Lead conversion rate',
-    description: 'Second KPI description',
+    type: 'array',
+    example: [
+      {
+        prioridad: 'Expand into new markets',
+        plazo: '2025',
+        esOKR: true,
+        subprioridades: ['Open branch in Costa Rica', 'Establish logistics'],
+      },
+      {
+        prioridad: 'Improve UX',
+        plazo: 'Q3 2025',
+        esOKR: false,
+        subprioridades: ['Mobile redesign', 'A/B testing'],
+      },
+    ],
   })
-  @IsString()
-  @MaxLength(250)
-  kpi_description_2: string;
-
-  @ApiProperty({ example: '75%', description: 'Target for KPI 2' })
-  @IsString()
-  @MaxLength(100)
-  kpi_target_2: string;
-
-  @ApiProperty({
-    example: 'Customer retention',
-    description: 'Third KPI description',
-  })
-  @IsString()
-  @MaxLength(250)
-  kpi_description_3: string;
-
-  @ApiProperty({ example: '80%', description: 'Target for KPI 3' })
-  @IsString()
-  @MaxLength(100)
-  kpi_target_3: string;
-
-  @ApiProperty({ example: 'Integrate CRM across regions' })
-  @IsString()
-  @MaxLength(500)
-  priority_description_1: string;
-
-  @ApiProperty({ example: '2025-07-01' })
-  @IsString()
-  @MaxLength(50)
-  priority_deadline_1: string;
-
-  @ApiProperty({ example: 'Train customer service teams' })
-  @IsString()
-  @MaxLength(500)
-  priority_description_2: string;
-
-  @ApiProperty({ example: '2025-08-01' })
-  @IsString()
-  @MaxLength(50)
-  priority_deadline_2: string;
-
-  @ApiProperty({ example: 'Implement BI dashboards' })
-  @IsString()
-  @MaxLength(500)
-  priority_description_3: string;
-
-  @ApiProperty({ example: '2025-09-01' })
-  @IsString()
-  @MaxLength(50)
-  priority_deadline_3: string;
-
-  @ApiProperty({ example: 'Audit supply chain' })
-  @IsString()
-  @MaxLength(500)
-  priority_description_4: string;
-
-  @ApiProperty({ example: '2025-10-01' })
-  @IsString()
-  @MaxLength(50)
-  priority_deadline_4: string;
-
-  @ApiProperty({ example: 'Website optimization' })
-  @IsString()
-  @MaxLength(500)
-  priority_description_5: string;
-
-  @ApiProperty({ example: '2025-11-01' })
-  @IsString()
-  @MaxLength(50)
-  priority_deadline_5: string;
+  @IsArray()
+  priority_list: any[];
 
   @ApiProperty({ example: 'Everything on track' })
   @IsString()
@@ -191,4 +109,32 @@ export class CreateFormatVisionDto {
   @IsString()
   @MaxLength(50)
   id_company: string;
+
+  @ApiProperty({
+    description: 'Vision blocks structured by period',
+    type: 'array',
+    example: [
+      {
+        key: 'threeFiveYears',
+        values: [
+          { titulo: 'BHAG', value: 'Be the #1 provider in Central America' },
+          { titulo: 'Market presence', value: '5 countries' },
+        ],
+      },
+      {
+        key: 'year',
+        values: [
+          { titulo: 'Annual focus', value: 'Optimize operations' },
+        ],
+      },
+      {
+        key: 'trimesterOne',
+        values: [
+          { titulo: 'Campaign Q1', value: 'Launch loyalty program' },
+        ],
+      },
+    ],
+  })
+  @IsArray()
+  visionData: any[];
 }

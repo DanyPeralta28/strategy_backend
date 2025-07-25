@@ -4,6 +4,7 @@
 /log
 postgres/
 /tnsnames.ora
+localtunnel.d.ts
 
 *.env
 *.pem

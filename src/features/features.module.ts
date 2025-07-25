@@ -15,6 +15,12 @@ import { FormatKpiBalancesModule } from './opsp/format-kpi-balances/format-kpi-b
 import { FormatTerritoriesModule } from './opsp/format-territories/format-territories.module';
 import { FormatCulturesModule } from './opsp/format-cultures/format-cultures.module';
 import { FormatBhagModule } from './opsp/format-bhag/format-bhag.module';
+import { WinGameModule } from './opsp/win-game/win-game.module';
+import { PlayersAModule } from './opsp/players-a/players-a.module';
+import { PriorityWeeksModule } from './follow-up/priority-weeks/priority-weeks.module';
+import { StartWeeksModule } from './follow-up/start-weeks/start-weeks.module';
+import { GroupControlModule } from './follow-up/group-control/group-control.module';
+import { OrganizationModule } from './organization/organization.module';
 
 @Module({
   imports: [
@@ -33,7 +39,13 @@ import { FormatBhagModule } from './opsp/format-bhag/format-bhag.module';
     FormatKpiBalancesModule,
     FormatTerritoriesModule,
     FormatCulturesModule,
-    FormatBhagModule
+    FormatBhagModule,
+    WinGameModule,
+    PlayersAModule,
+    PriorityWeeksModule,
+    StartWeeksModule,
+    GroupControlModule,
+    OrganizationModule
   ]
 })
 export class FeaturesModule { }
