@@ -11,7 +11,6 @@ import { LoggerService } from './common/logger/logger.service';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 
 import { appUseReadmeHTLM } from './utils/md-parser';
-const localtunnel = require('localtunnel');
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -48,8 +47,6 @@ async function bootstrap() {
   SwaggerModule.setup(apiName, app, document);
 
   await app.listen(process.env.PORT);
-  const tunnel = await localtunnel({ port: process.env.PORT });
-  console.log(`🌍 Public URL (LocalTunnel): ${tunnel.url}`);
   logger.log(`App running on ${ process.env.ENV }`);
   logger.log(`App running on port ${ process.env.PORT }`);
   

@@ -21,6 +21,10 @@ import { PriorityWeeksModule } from './follow-up/priority-weeks/priority-weeks.m
 import { StartWeeksModule } from './follow-up/start-weeks/start-weeks.module';
 import { GroupControlModule } from './follow-up/group-control/group-control.module';
 import { OrganizationModule } from './organization/organization.module';
+import { CashFormatIelModule } from './cash/format_iel/format_iel.module';
+import { CashFormatOptcashModule } from './cash/format_optcash/format_optcash.module';
+import { FormatValueModule } from './cash/format_value/format_value.module';
+import { CashFormatFinancesModule } from './cash/format_finances/format_finances.module';
 
 @Module({
   imports: [
@@ -45,7 +49,11 @@ import { OrganizationModule } from './organization/organization.module';
     PriorityWeeksModule,
     StartWeeksModule,
     GroupControlModule,
-    OrganizationModule
+    OrganizationModule,
+    CashFormatIelModule,
+    CashFormatOptcashModule,
+    FormatValueModule,
+    CashFormatFinancesModule
   ]
 })
 export class FeaturesModule { }
