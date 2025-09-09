@@ -50,6 +50,9 @@ export class FollowUpPriorityWeeks {
   @Column({ type: 'json', nullable: true })
   kpi_list: any[];
 
+  @Column({ type: 'json', nullable: true })
+  quarter_priority_list: any[];
+
   @Column({ length: 50, nullable: true })
   id_company: string;
 

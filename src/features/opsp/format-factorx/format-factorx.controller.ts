@@ -43,7 +43,7 @@ export class FormatFactorXController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({
@@ -54,7 +54,7 @@ export class FormatFactorXController {
         data: [
           {
             id: 1,
-            id_company: 'BANRURAL_GT',
+            id_company: 'Scalingsoft',
             process_flow_steps: [],
             status: 1,
             created_by: 'admin',
@@ -85,7 +85,7 @@ export class FormatFactorXController {
       example: {
         data: {
           id: 1,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           process_flow_steps: [],
           created_by: 'admin',
           created_at: '2025-06-09T00:00:00.000Z',

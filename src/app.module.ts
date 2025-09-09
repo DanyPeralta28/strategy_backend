@@ -49,6 +49,7 @@ import { ConsistentActionsModule } from './features/opsp/consistent-actions/cons
     FeaturesModule,
     FormatProfitPerxModule,
     ConsistentActionsModule,
+
   ],
 })
 export class AppModule {}

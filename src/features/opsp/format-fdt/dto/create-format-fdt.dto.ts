@@ -9,7 +9,7 @@ import {
 
 export class CreateFormatFdtDto {
   /* --- Clave de compañía --- */
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
+  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;

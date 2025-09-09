@@ -3,7 +3,7 @@ import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-valida
 import { IdeaSectionDto } from './idea-section.dto';
 
 export class CreateCashFormatOptcashDto {
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   @MaxLength(50)
   id_company: string;
@@ -12,10 +12,30 @@ export class CreateCashFormatOptcashDto {
     type: IdeaSectionDto,
     isArray: true,
     example: [
-      { letter: 'A', title: 'Ideas para mejorar el ciclo de Ventas', items: [], editing: false },
-      { letter: 'B', title: 'Ideas para Manufactura/Producción e Inventario', items: [], editing: false },
-      { letter: 'C', title: 'Ideas para Entrega/Distribución', items: [], editing: false },
-      { letter: 'D', title: 'Ideas para Facturación y Cobro', items: [], editing: false },
+      {
+        letter: 'A',
+        title: 'Optimizar embudo de ventas',
+        items: ['Mejorar lead scoring', 'Automatizar follow-ups', 'Dashboard de conversión'],
+        editing: false
+      },
+      {
+        letter: 'B',
+        title: 'Eficiencia en producción e inventario',
+        items: ['Kanban en planta', 'Reorden automático de insumos', 'Clasificación ABC'],
+        editing: false
+      },
+      {
+        letter: 'C',
+        title: 'Entrega y distribución',
+        items: ['Ruteo con ventanas de tiempo', 'Trackeo en tiempo real', 'Acuerdos con 3PL'],
+        editing: false
+      },
+      {
+        letter: 'D',
+        title: 'Facturación y cobro',
+        items: ['Recordatorios automáticos', 'Descuentos por pronto pago', 'Conciliación con gateway'],
+        editing: false
+      }
     ],
   })
   @IsArray()

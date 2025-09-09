@@ -32,7 +32,7 @@ export class FormatVisionsController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({
@@ -49,7 +49,7 @@ export class FormatVisionsController {
             created_by: 'admin_user',
             created_at: '2025-06-05T00:00:00.000Z',
             status: 1,
-            id_company: 'BANRURAL_GT',
+            id_company: 'Scalingsoft',
           },
         ],
         message: 'OK',
@@ -77,7 +77,7 @@ export class FormatVisionsController {
           status: 1,
           created_by: 'admin_user',
           created_at: '2025-06-05T00:00:00.000Z',
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
         },
         message: 'OK',
         statusCode: 200,

@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-validator';
 
 export class CreateCashFormatIelDto {
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
+  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;
@@ -23,7 +23,7 @@ export class CreateCashFormatIelDto {
   })
   @IsArray()
   @ArrayNotEmpty()
-  periods: any[];
+  periods_list: any[];
 
   @ApiProperty({
     description: 'List of impact items',
@@ -46,7 +46,7 @@ export class CreateCashFormatIelDto {
   })
   @IsArray()
   @ArrayNotEmpty()
-  impactItems: any[];
+  impact_items_list: any[];
 
   @ApiProperty({ example: 1, description: 'Status of the record' })
   @IsInt()

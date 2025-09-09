@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-validator';
 
 export class CreateConsistentActionDto {
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
+  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;

@@ -25,6 +25,14 @@ import { CashFormatIelModule } from './cash/format_iel/format_iel.module';
 import { CashFormatOptcashModule } from './cash/format_optcash/format_optcash.module';
 import { FormatValueModule } from './cash/format_value/format_value.module';
 import { CashFormatFinancesModule } from './cash/format_finances/format_finances.module';
+import { FormatFaceModule } from './execution/format_face/format_face.module';
+import { FormatPaceModule } from './execution/format_pace/format_pace.module';
+import { OrgRelationsModule } from './org-relations/org-relations.module';
+import { FormatWwwModule } from './execution/format_www/format_www.module';
+import { ExecutionSurveyAnswersModule } from './execution/survey-answers/survey-answers.module';
+import { SurveyCampaignModule } from './execution/survey-campaign/survey-campaign.module';
+
+
 
 @Module({
   imports: [
@@ -53,7 +61,13 @@ import { CashFormatFinancesModule } from './cash/format_finances/format_finances
     CashFormatIelModule,
     CashFormatOptcashModule,
     FormatValueModule,
-    CashFormatFinancesModule
+    CashFormatFinancesModule,
+    FormatFaceModule,
+    FormatPaceModule,
+    OrgRelationsModule,
+    FormatWwwModule,
+    ExecutionSurveyAnswersModule,
+    SurveyCampaignModule
   ]
 })
 export class FeaturesModule { }

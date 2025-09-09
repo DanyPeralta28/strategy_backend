@@ -41,6 +41,17 @@ export class CreateFollowUpPriorityWeeksDto {
   @IsOptional()
   kpi_list: any[];
 
+  @ApiProperty({
+    description: 'Lista de KPIs personalizados',
+    example: [
+      { noWeek: 4, description: 'Incrementar ventas en un 10%', weight: 4 },
+      { noWeek: 5, description: 'Reducir tiempos de atención', weight: 3 }
+    ],
+  })
+  @IsArray()
+  @IsOptional()
+  quarter_priority_list: any[];
+
   @ApiProperty({ example: '100%', required: false })
   @IsOptional()
   @IsString()
@@ -113,7 +124,7 @@ export class CreateFollowUpPriorityWeeksDto {
   @MaxLength(255)
   game_color_priority?: string;
 
-  @ApiProperty({ example: 'BANRURAL_GT', required: false })
+  @ApiProperty({ example: 'Scalingsoft', required: false })
   @IsOptional()
   @IsString()
   @MaxLength(50)

@@ -2,7 +2,7 @@ import { IsString, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatCentralClientDto {
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   id_company: string;
 

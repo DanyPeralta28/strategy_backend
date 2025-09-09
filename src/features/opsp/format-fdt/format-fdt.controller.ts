@@ -29,7 +29,7 @@ export class FormatFdtController {
 
   @Get()
   @ApiOperation({ summary: 'Get all FDT records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'BANRURAL_GT' })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiResponse({ status: 200, description: 'FDT formats retrieved', type: [FormatFdt] })
   async findAll(@Query('id_company') id_company: string) {
     return await this.service.findAll(id_company);

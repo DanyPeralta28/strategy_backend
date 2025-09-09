@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 
 export class CreateWinGameDto {
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
+  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;

@@ -25,7 +25,7 @@ export class PlayersAController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Player A records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'BANRURAL_GT' })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiResponse({
     status: 200,
     description: 'Player A records retrieved',

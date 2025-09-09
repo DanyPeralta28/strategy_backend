@@ -8,7 +8,7 @@ import {
 } from 'class-validator';
 
 export class CreateFormatGoalDto {
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   id_company: string;
 

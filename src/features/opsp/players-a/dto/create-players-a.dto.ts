@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsOptional, IsInt, MaxLength } from 'class-validator';
 
 export class CreatePlayerADto {
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
+  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;

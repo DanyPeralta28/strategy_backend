@@ -32,7 +32,7 @@ export class FormatPurposesController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({

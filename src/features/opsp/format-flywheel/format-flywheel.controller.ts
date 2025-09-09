@@ -33,7 +33,7 @@ export class FormatFlywheelController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({
@@ -52,7 +52,7 @@ export class FormatFlywheelController {
             status: 1,
             created_by: 'admin_user',
             created_at: '2025-06-09T00:00:00.000Z',
-            id_company: 'BANRURAL_GT',
+            id_company: 'Scalingsoft',
           },
         ],
         message: 'OK',
@@ -82,7 +82,7 @@ export class FormatFlywheelController {
           status: 1,
           created_by: 'admin_user',
           created_at: '2025-06-09T00:00:00.000Z',
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
         },
         message: 'OK',
         statusCode: 200,

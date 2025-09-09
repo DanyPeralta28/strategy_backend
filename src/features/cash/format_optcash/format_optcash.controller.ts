@@ -16,13 +16,53 @@ export class CashFormatOptcashController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'BANRURAL_GT',
-        letter: 'A',
-        idea_a_list: [{ idea: 'Expand product line', priority: 1 }],
+        id_company: 'Scalingsoft',
+        ideas: [
+          {
+            letter: 'A',
+            title: 'Ideas para mejorar el Ciclo de Ventas',
+            items: [
+              { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' },
+              { idea: 'Automatizar follow-ups', reduction: '', errors: '', gap: '' },
+              { idea: 'Dashboard de conversión', reduction: '', errors: '', gap: '' }
+            ],
+            editing: false
+          },
+          {
+            letter: 'B',
+            title: 'Eficiencia en producción e inventario',
+            items: [
+              { idea: 'Kanban en planta', reduction: '', errors: '', gap: '' },
+              { idea: 'Reorden automático de insumos', reduction: '', errors: '', gap: '' },
+              { idea: 'Clasificación ABC', reduction: '', errors: '', gap: '' }
+            ],
+            editing: false
+          },
+          {
+            letter: 'C',
+            title: 'Entrega y distribución',
+            items: [
+              { idea: 'Ruteo con ventanas de tiempo', reduction: '', errors: '', gap: '' },
+              { idea: 'Trackeo en tiempo real', reduction: '', errors: '', gap: '' },
+              { idea: 'Acuerdos con 3PL', reduction: '', errors: '', gap: '' }
+            ],
+            editing: false
+          },
+          {
+            letter: 'D',
+            title: 'Facturación y cobro',
+            items: [
+              { idea: 'Recordatorios automáticos', reduction: '', errors: '', gap: '' },
+              { idea: 'Descuentos por pronto pago', reduction: '', errors: '', gap: '' },
+              { idea: 'Conciliación con gateway', reduction: '', errors: '', gap: '' }
+            ],
+            editing: false
+          }
+        ],
         status: 1,
-        created_by: 'admin_user',
-      },
-    },
+        created_by: 'admin_user'
+      }
+    }
   })
   @ApiResponse({
     status: 201,
@@ -40,7 +80,7 @@ export class CashFormatOptcashController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Optcash records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'BANRURAL_GT' })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiResponse({
     status: 200,
     description: 'Optcash formats retrieved',
@@ -48,18 +88,32 @@ export class CashFormatOptcashController {
       example: {
         data: [{
           id: 7,
-          id_company: 'BANRURAL_GT',
-          idea_a_list: [{ idea: 'Expand product line', priority: 1 }],
+          id_company: 'Scalingsoft',
+          idea_a_list: [
+            { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' }
+          ],
           idea_b_list: [],
           idea_c_list: [],
           idea_d_list: [],
+          // formato unificado
+          ideas: [
+            {
+              letter: 'A',
+              title: 'Ideas para mejorar el Ciclo de Ventas',
+              items: [
+                { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' }
+              ],
+              editing: false
+            }
+            // B, C, D…
+          ],
           status: 1,
           created_by: 'admin_user',
-          created_at: '2025-08-11T08:33:00.000Z',
+          created_at: '2025-08-11T08:33:00.000Z'
         }],
         message: 'OK',
-        statusCode: 200,
-      },
+        statusCode: 200
+      }
     },
   })
   @ApiResponse({
@@ -81,18 +135,31 @@ export class CashFormatOptcashController {
       example: {
         data: {
           id: 7,
-          id_company: 'BANRURAL_GT',
-          idea_a_list: [{ idea: 'Expand product line', priority: 1 }],
+          id_company: 'Scalingsoft',
+          idea_a_list: [
+            { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' }
+          ],
           idea_b_list: [],
           idea_c_list: [],
           idea_d_list: [],
+          ideas: [
+            {
+              letter: 'A',
+              title: 'Ideas para mejorar el Ciclo de Ventas',
+              items: [
+                { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' }
+              ],
+              editing: false
+            }
+            // B, C, D…
+          ],
           status: 1,
           created_by: 'admin_user',
-          created_at: '2025-08-11T08:33:00.000Z',
+          created_at: '2025-08-11T08:33:00.000Z'
         },
         message: 'OK',
-        statusCode: 200,
-      },
+        statusCode: 200
+      }
     },
   })
   @ApiResponse({
@@ -115,14 +182,46 @@ export class CashFormatOptcashController {
   @ApiBody({
     schema: {
       example: {
-        idea_a_list: [{ idea: 'Expand internationally', priority: 2 }],
-        idea_b_list: [],
-        idea_c_list: [],
-        idea_d_list: [],
+        ideas: [
+          {
+            letter: 'A',
+            title: 'Ideas para mejorar el Ciclo de Ventas',
+            items: [
+              { idea: 'Calificar MQL/SQL', reduction: '', errors: '', gap: '' },
+              { idea: 'Cadencia de emails', reduction: '', errors: '', gap: '' },
+            ],
+            editing: false
+          },
+          {
+            letter: 'B',
+            title: 'Optimizar costos de producción',
+            items: [
+              { idea: 'Negociar con proveedores', reduction: '', errors: '', gap: '' },
+            ],
+            editing: false
+          },
+          {
+            letter: 'C',
+            title: 'Mejorar ruteo de distribución',
+            items: [
+              { idea: 'Ruteo con ventanas de tiempo', reduction: '', errors: '', gap: '' },
+            ],
+            editing: false
+          },
+          {
+            letter: 'D',
+            title: 'Reducir DSO',
+            items: [
+              { idea: 'Recordatorios automáticos', reduction: '', errors: '', gap: '' },
+              { idea: 'Pronto pago', reduction: '', errors: '', gap: '' }
+            ],
+            editing: false
+          }
+        ],
         status: 1,
-        created_by: 'admin_user',
-      },
-    },
+        created_by: 'admin_user'
+      }
+    }
   })
   @ApiResponse({
     status: 200,

@@ -16,7 +16,7 @@ export class CashFormatFinancesController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'BANRURAL_GT',
+        id_company: 'Scalingsoft',
         evaluations_list: [{ store_id: 1, score: 85 }],
         attributes_list: [{ attr: 'ROI', value: 0.23 }],
         status: 1,
@@ -40,7 +40,7 @@ export class CashFormatFinancesController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Finances records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'BANRURAL_GT' })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiResponse({
     status: 200,
     description: 'Finances formats retrieved',
@@ -48,7 +48,7 @@ export class CashFormatFinancesController {
       example: {
         data: [{
           id: 11,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           evaluations_list: [{ store_id: 1, score: 85 }],
           attributes_list: [{ attr: 'ROI', value: 0.23 }],
           status: 1,
@@ -79,7 +79,7 @@ export class CashFormatFinancesController {
       example: {
         data: {
           id: 11,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           evaluations_list: [{ store_id: 1, score: 85 }],
           attributes_list: [{ attr: 'ROI', value: 0.23 }],
           status: 1,

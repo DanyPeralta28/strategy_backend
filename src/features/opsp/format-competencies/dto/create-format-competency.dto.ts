@@ -2,7 +2,7 @@ import { IsString, MaxLength, IsOptional, IsArray } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatCompetencyDto {
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   @MaxLength(50)
   id_company: string;

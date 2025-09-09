@@ -32,6 +32,6 @@ export class FormatCoreValue {
   created_at: Date;
 
   @Column({ length: 50, nullable: true })
-  @ApiProperty({ example: 'BANRURAL_GT', maxLength: 50 })
+  @ApiProperty({ example: 'Scalingsoft', maxLength: 50 })
   id_company: string;
 }

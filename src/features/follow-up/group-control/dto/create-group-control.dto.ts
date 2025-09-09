@@ -33,12 +33,17 @@ export class CreateGroupControlDto {
   @IsString()
   game_color_group?: string;
 
-  @ApiProperty({ example: '2025-07-15T10:00:00Z', description: 'Fecha y hora del juego semanal' })
+  @ApiProperty({ example: 'LUNES', description: 'Día del juego semanal' })
   @IsOptional()
-  @IsDateString()
-  date_time_weekly?: string;
+  @IsString()
+  weekly_day?: string;
 
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Identificador de la compañía' })
+  @ApiProperty({ example: '14:45', description: 'Hora del juego semanal' })
+  @IsOptional()
+  @IsString()
+  weekly_time?: string;
+
+  @ApiProperty({ example: 'Scalingsoft', description: 'Identificador de la compañía' })
   @IsOptional()
   @IsString()
   @MaxLength(50)

@@ -43,7 +43,7 @@ export class CreateFormatFlywheelDto {
   created_by: string;
 
   @ApiProperty({
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     maxLength: 50,
   })
   @IsString()

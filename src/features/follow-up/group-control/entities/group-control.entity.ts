@@ -23,8 +23,11 @@ export class GroupControl {
   @Column({ nullable: true })
   game_color_group: string;
 
-  @Column({ type: 'datetime', nullable: true })
-  date_time_weekly: Date;
+  @Column({ name: 'weekly_day', type: 'varchar', length: 20, nullable: true })
+  weekly_day: string;
+
+  @Column({ name: 'weekly_time', type: 'time', nullable: true })
+  weekly_time: string;
 
   @Column({ length: 50, nullable: true })
   id_company: string;

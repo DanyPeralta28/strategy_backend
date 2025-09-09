@@ -32,7 +32,7 @@ export class FormatCoreValuesController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({
@@ -64,7 +64,7 @@ export class FormatCoreValuesController {
           short_description: 'Actuamos con ética y transparencia',
           long_description: 'Nuestra empresa fomenta la honestidad como pilar...',
           created_by: 'admin_user',
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
         },
         message: 'OK',
         statusCode: 200,

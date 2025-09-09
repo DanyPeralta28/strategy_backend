@@ -12,7 +12,7 @@ export class CreateFollowUpStartWeeksDto {
   @IsInt()
   id_view_list?: number;
 
-  @ApiProperty({ example: 'BANRURAL_GT', description: 'Company identifier' })
+  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsOptional()
   @IsString()
   @MaxLength(50)

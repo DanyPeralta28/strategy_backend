@@ -7,7 +7,7 @@ export class FormatPurpose {
   @PrimaryGeneratedColumn({ name: 'purposes_id' })
   id: number;
 
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @Column({ length: 50, nullable: true })
   id_company: string;
 

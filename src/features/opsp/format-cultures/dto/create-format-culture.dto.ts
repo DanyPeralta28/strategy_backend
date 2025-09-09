@@ -2,7 +2,7 @@ import { IsString, MaxLength, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatCultureDto {
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   @MaxLength(50)
   id_company: string;

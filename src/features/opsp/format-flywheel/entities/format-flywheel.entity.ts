@@ -39,7 +39,7 @@ export class FormatFlywheel {
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @Column({ length: 50, nullable: false })
   id_company: string;
 }

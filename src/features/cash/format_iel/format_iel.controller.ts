@@ -17,9 +17,9 @@ export class CashFormatIelController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'BANRURAL_GT',
-        periods: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
-        impactItems: [
+        id_company: 'Scalingsoft',
+        periods_list: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
+        impact_items_list: [
           { label: 'Incremento (%) de integrantes tipo “A”…', rank: 12 },
           { label: 'Fortalecer las disciplinas de Ejecución…', rank: 12 },
           { label: 'Optimizar el Desempeño del Producto…', rank: 10 },
@@ -45,7 +45,7 @@ export class CashFormatIelController {
 
   @Get()
   @ApiOperation({ summary: 'Get all IEL records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'BANRURAL_GT' })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiResponse({
     status: 200,
     description: 'IEL formats retrieved',
@@ -53,7 +53,7 @@ export class CashFormatIelController {
       example: {
         data: [{
           id: 15,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           periods_list: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
           impact_items_list: [
             { label: 'Incremento (%) de integrantes tipo “A”…', rank: 12 },
@@ -88,7 +88,7 @@ export class CashFormatIelController {
       example: {
         data: {
           id: 15,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           periods_list: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
           impact_items_list: [{ label: 'Optimizar el Desempeño…', rank: 10 }],
           status: 1,
@@ -120,8 +120,8 @@ export class CashFormatIelController {
   @ApiBody({
     schema: {
       example: {
-        periods: [{ year: '2026', revenue: 30, cogs: 35, grossMargin: 12, directLabor: 22 }],
-        impactItems: [{ label: 'Nueva prioridad', rank: 9 }],
+        periods_list: [{ year: '2026', revenue: 30, cogs: 35, grossMargin: 12, directLabor: 22 }],
+        impact_items_list: [{ label: 'Nueva prioridad', rank: 9 }],
         status: 1,
         created_by: 'admin_user',
       },

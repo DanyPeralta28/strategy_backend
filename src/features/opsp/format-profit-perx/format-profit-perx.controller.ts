@@ -42,7 +42,7 @@ export class FormatProfitPerXController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({
@@ -53,7 +53,7 @@ export class FormatProfitPerXController {
         data: [
           {
             id: 1,
-            id_company: 'BANRURAL_GT',
+            id_company: 'Scalingsoft',
             profit_per_x_definition: 'Ganancia por cliente',
             status: 1,
             created_by: 'admin',
@@ -84,7 +84,7 @@ export class FormatProfitPerXController {
       example: {
         data: {
           id: 1,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           profit_per_x_definition: 'Ganancia por cliente',
           status: 1,
           created_by: 'admin',

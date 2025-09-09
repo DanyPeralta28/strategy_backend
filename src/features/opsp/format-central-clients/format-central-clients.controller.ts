@@ -42,7 +42,7 @@ export class FormatCentralClientsController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'BANRURAL_GT',
+    example: 'Scalingsoft',
     description: 'Company identifier',
   })
   @ApiResponse({
@@ -53,7 +53,7 @@ export class FormatCentralClientsController {
         data: [
           {
             id: 1,
-            id_company: 'BANRURAL_GT',
+            id_company: 'Scalingsoft',
             core_client_name: 'Ana Morales',
             age_gender_education: '25 años, mujer, educación universitaria',
             status: 1,
@@ -85,7 +85,7 @@ export class FormatCentralClientsController {
       example: {
         data: {
           id: 1,
-          id_company: 'BANRURAL_GT',
+          id_company: 'Scalingsoft',
           core_client_name: 'Ana Morales',
           success_metrics: 'Alcanzar metas personales y laborales',
           created_by: 'admin_user',

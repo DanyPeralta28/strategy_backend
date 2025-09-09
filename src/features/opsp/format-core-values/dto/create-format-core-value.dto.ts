@@ -24,7 +24,7 @@ export class CreateFormatCoreValuesDto {
   @MaxLength(100)
   created_by: string;
 
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   @MaxLength(50)
   id_company: string;

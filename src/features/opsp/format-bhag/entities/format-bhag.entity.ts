@@ -7,7 +7,7 @@ export class FormatBhag {
   @PrimaryGeneratedColumn({ name: 'bhag_id' })
   id: number;
 
-  @ApiProperty({ example: 'BANRURAL_GT' })
+  @ApiProperty({ example: 'Scalingsoft' })
   @Column({ length: 50 })
   id_company: string;
 

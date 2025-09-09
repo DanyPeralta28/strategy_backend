@@ -40,7 +40,7 @@ export class ConsistentActionsController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Consistent Actions for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'BANRURAL_GT' })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiResponse({
     status: 200,
     description: 'Consistent Actions retrieved',
