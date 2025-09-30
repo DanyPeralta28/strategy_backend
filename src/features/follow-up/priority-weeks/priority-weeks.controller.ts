@@ -1,7 +1,9 @@
 // follow-up-priority-weeks.controller.ts
-import {Controller,Get,Post,Put,Delete,Param,Body,Query,ParseIntPipe,
+import {
+  Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe,
 } from '@nestjs/common';
-import {ApiTags,ApiOperation,ApiResponse,ApiParam,ApiQuery,
+import {
+  ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery,
 } from '@nestjs/swagger';
 import { FollowUpPriorityWeeksService } from './priority-weeks.service';
 import { CreateFollowUpPriorityWeeksDto } from './dto/create-priority-week.dto';
@@ -11,7 +13,7 @@ import { FollowUpPriorityWeeks } from './entities/priority-week.entity';
 @ApiTags('Follow-Up - Weekly Priorities')
 @Controller('priority-weeks')
 export class FollowUpPriorityWeeksController {
-  constructor(private readonly service: FollowUpPriorityWeeksService) {}
+  constructor(private readonly service: FollowUpPriorityWeeksService) { }
 
   @Post()
   @ApiOperation({ summary: 'Create a new Priority Week record' })
@@ -73,23 +75,42 @@ export class FollowUpPriorityWeeksController {
     return await this.service.remove(id);
   }
 
-@Get('group/:id_company/:id_entity/:team/:week')
-@ApiOperation({ summary: 'Obtiene prioridades filtradas por semana y configuración de vista' })
-@ApiParam({ name: 'id_company', example: 'Scalingsoft' })
-@ApiParam({ name: 'id_entity', example: 'SUCURSAL_001' })
-@ApiParam({ name: 'team', example: 'marketing' })
-@ApiParam({ name: 'week', example: 4 })
-@ApiResponse({
-  status: 200,
-  description: 'Lista de prioridades filtradas según vista y semana',
-})
-async getCustomView(
-  @Param('id_company') id_company: string,
-  @Param('id_entity') id_entity: string,
-  @Param('team') team: string,
-  @Param('week') week: number,
-) {
-  return await this.service.getCustomView(id_company, id_entity, team, week);
-}
+  @Get('group/:id_company/:id_entity/:team/:week')
+  @ApiOperation({ summary: 'Obtiene prioridades filtradas por semana y configuración de vista' })
+  @ApiParam({ name: 'id_company', example: 'Scalingsoft' })
+  @ApiParam({ name: 'id_entity', example: 'SUCURSAL_001' })
+  @ApiParam({ name: 'team', example: 'Tecnología' })
+  @ApiParam({ name: 'week', example: 1 })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de prioridades filtradas según vista y semana',
+  })
+  async getCustomView(
+    @Param('id_company') id_company: string,
+    @Param('id_entity') id_entity: string,
+    @Param('team') team: string,
+    @Param('week') week: number,
+  ) {
+    return await this.service.getCustomView(id_company, id_entity, team, week);
+  }
+
+  @Get('group/by-users/:id_company/:id_entity/:team/:id_users')
+  @ApiOperation({ summary: 'Obtiene prioridades filtradas por semana y configuración de vista' })
+  @ApiParam({ name: 'id_company', example: 'Scalingsoft' })
+  @ApiParam({ name: 'id_entity', example: 'SUCURSAL_001' })
+  @ApiParam({ name: 'team', example: 'Tecnología' })
+  @ApiParam({ name: 'id_users', example: '1,2,3' })
+  @ApiResponse({
+    status: 200,
+    description: 'Lista de prioridades filtradas según vista y semana',
+  })
+  async getPrioritiesIds(
+    @Param('id_company') id_company: string,
+    @Param('id_entity') id_entity: string,
+    @Param('team') team: string,
+    @Param('id_users') id_users: string,
+  ) {
+    return await this.service.getPrioritiesIds(id_company, id_entity, team, id_users);
+  }
 
 }

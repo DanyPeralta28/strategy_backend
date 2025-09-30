@@ -9,6 +9,7 @@ export class BulkCreateFormatPaceDto {
     example: [
       {
         id_company: 'Scalingsoft',
+        id_entity: 'SUCURSAL_001',
         process_name: 'Invoice Processing',
         person_in_charge_name: 'John Doe',
         kpi_list: [{ kpi: 'Cycle Time (days)', target: 2 }],
@@ -17,6 +18,7 @@ export class BulkCreateFormatPaceDto {
       },
       {
         id_company: 'Scalingsoft',
+        id_entity: 'SUCURSAL_001',
         process_name: 'Payment Approval',
         person_in_charge_name: 'Jane Smith',
         kpi_list: [{ kpi: 'Approval Time (hrs)', target: 24 }],

@@ -58,7 +58,7 @@ export class FormatFaceService {
     }
   }
 
-  async findAll(id_company: string, requester_user_id: number) {
+  async findAll(id_company: string, requester_user_id: number, id_entity: string) {
     try {
       const me = await this.org.getUserCore(requester_user_id);
       if (!me) {
@@ -85,7 +85,7 @@ export class FormatFaceService {
       }
 
       const results = await this.repo.find({
-        where: { id_company, status: 1, created_by: In(allowedStr) },
+        where: { id_company, status: 1, id_entity, created_by: In(allowedStr) },
       });
 
       return { data: results, message: 'OK', statusCode: 200 };

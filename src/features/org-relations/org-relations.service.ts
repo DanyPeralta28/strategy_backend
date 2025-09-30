@@ -9,6 +9,7 @@ export type CoreUser = {
   id_entity: number | string | null;
   level_user: number | null;
   status?: number | null;
+  has_noBoss?: number | null;
 };
 
 export type BasicUser = { id_user: number; username: string | null };
@@ -47,7 +48,7 @@ export class OrgRelationsService {
       `
       SELECT
         u.id_user, u.username, u.team,
-        u.id_company, u.id_entity, u.level_user, u.status
+        u.id_company, u.id_entity, u.level_user, u.status, u.has_noBoss
       FROM users u
       WHERE u.id_user = ?
       `,

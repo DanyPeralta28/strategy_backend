@@ -9,6 +9,7 @@ export class BulkCreateFormatWwwDto {
     example: [
       {
         id_company: 'Scalingsoft',
+        id_entity: 'SUCURSAL_001',
         what: 'Entregar el plan de marketing',
         who: 'Julio An leu',
         when: '2025-01-28',
@@ -19,6 +20,7 @@ export class BulkCreateFormatWwwDto {
       },
       {
         id_company: 'Scalingsoft',
+        id_entity: 'SUCURSAL_001',
         what: 'Enviar reporte mensual',
         who: 'Ana Gómez',
         when: '2025-02-05',

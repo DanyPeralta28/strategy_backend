@@ -1,5 +1,6 @@
 import {
   Controller, Get, Post, Param, Body, Query, ParseIntPipe,
+  BadRequestException,
 } from '@nestjs/common';
 import {
   ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery,
@@ -11,7 +12,7 @@ import { ExecutionSurveyAnswer } from './entities/survey-answer.entity';
 @ApiTags('Execution - Survey Answers')
 @Controller('execution/survey-answers')
 export class ExecutionSurveyAnswersController {
-  constructor(private readonly service: ExecutionSurveyAnswersService) {}
+  constructor(private readonly service: ExecutionSurveyAnswersService) { }
 
   @Post()
   @ApiOperation({ summary: 'Create a new survey answer' })
@@ -48,6 +49,13 @@ export class ExecutionSurveyAnswersController {
   @Get()
   @ApiOperation({ summary: 'Get all survey answers for a company' })
   @ApiQuery({ name: 'id_company', required: true, example: 'Scalling' })
+  @ApiQuery({
+    name: 'id_entity',
+    required: false,
+    example: 'ENTITY_123',
+    schema: { type: 'string', maxLength: 50, nullable: true },
+    description: 'Optional entity id. Must be a string with max 50 characters.',
+  })
   @ApiResponse({
     status: 200,
     description: 'Survey answers retrieved',
@@ -83,8 +91,38 @@ export class ExecutionSurveyAnswersController {
       },
     },
   })
-  async findAll(@Query('id_company') id_company: string) {
-    return await this.service.findAll(id_company);
+  async findAll(
+    @Query('id_company') id_company: string,
+    @Query('id_entity') id_entityRaw?: string,
+  ) {
+    let id_entity: string | undefined = undefined;
+
+    if (
+      id_entityRaw &&
+      id_entityRaw !== '{id_entity}' &&
+      id_entityRaw.toLowerCase() !== 'undefined' &&
+      id_entityRaw.toLowerCase() !== 'null'
+    ) {
+      if (typeof id_entityRaw !== 'string') {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must be a string conforming to the specified constraints',
+          statusCode: 400,
+        });
+      }
+
+      if (id_entityRaw.length > 50) {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must not exceed 50 characters',
+          statusCode: 400,
+        });
+      }
+
+      id_entity = id_entityRaw;
+    }
+
+    return await this.service.findAll(id_company, id_entity);
   }
 
   @Get(':id')

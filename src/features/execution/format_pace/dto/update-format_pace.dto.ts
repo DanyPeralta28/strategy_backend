@@ -3,5 +3,5 @@ import { CreateFormatPaceDto } from './create-format_pace.dto';
 
 export class UpdateFormatPaceDto extends OmitType(
   PartialType(CreateFormatPaceDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

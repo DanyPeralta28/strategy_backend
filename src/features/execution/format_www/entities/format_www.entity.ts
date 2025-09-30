@@ -31,4 +31,7 @@ export class FormatWww {
 
   @Column({ name: 'id_company', length: 50, nullable: true })
   id_company: string | null;
+
+  @Column({ length: 50, nullable: true })
+  id_entity: string;
 }

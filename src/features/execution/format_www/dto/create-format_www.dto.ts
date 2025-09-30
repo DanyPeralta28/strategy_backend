@@ -7,6 +7,12 @@ export class CreateFormatWwwDto {
   @MaxLength(50)
   id_company: string;
 
+   @ApiProperty({ example: 'SUCURSAL_001', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
+
   @ApiProperty({ example: 'Actualizar catálogo de productos' })
   @IsOptional()
   @IsString()

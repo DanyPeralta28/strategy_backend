@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe, HttpException, HttpStatus, BadRequestException } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery, ApiBody } from '@nestjs/swagger';
 import { FormatFaceService } from './format_face.service';
 import { CreateFormatFaceDto } from './dto/create-format_face.dto';
@@ -8,7 +8,7 @@ import { BulkCreateFormatFaceDto } from './dto/bulk-create-format_face.dto';
 @ApiTags('EXECUTION - Format Face')
 @Controller('format-face')
 export class FormatFaceController {
-  constructor(private readonly service: FormatFaceService) {}
+  constructor(private readonly service: FormatFaceService) { }
 
   @Post()
   @ApiOperation({ summary: 'Bulk create Format Face records ' })
@@ -36,10 +36,17 @@ export class FormatFaceController {
   }
   // ============================================================
 
-  @Get('visible/:id_company/:requester_user_id')
+  @Get('visible')
   @ApiOperation({ summary: 'Get visible Format Face for the requester (bosses/admins/teammates/self)' })
-  @ApiParam({ name: 'id_company', required: true, example: 'Scalingsoft' })
-  @ApiParam({ name: 'requester_user_id', required: true, example: 13474 })
+  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'requester_user_id', required: true, example: 13474 })
+  @ApiQuery({
+    name: 'id_entity',
+    required: false,
+    example: 'SUCURSAL_001',
+    schema: { type: 'string', maxLength: 50, nullable: true },
+    description: 'Optional entity id. Must be a string with max 50 characters.',
+  })
   @ApiResponse({
     status: 200,
     description: 'Format Face records visible to the requester',
@@ -77,7 +84,13 @@ export class FormatFaceController {
   @ApiResponse({
     status: 400,
     description: 'Bad request',
-    schema: { example: { data: null, message: 'requester_user_id must be numeric', statusCode: 400 } },
+    schema: {
+      example: {
+        data: null,
+        message: 'requester_user_id must be numeric',
+        statusCode: 400,
+      },
+    },
   })
   @ApiResponse({
     status: 404,
@@ -90,18 +103,46 @@ export class FormatFaceController {
     schema: { example: { data: null, message: 'Internal Server Error: <details>', statusCode: 500 } },
   })
   async findVisible(
-    @Param('id_company') id_company: string,
-    @Param('requester_user_id') requester_user_id: string,
+    @Query('id_company') id_company: string,
+    @Query('requester_user_id') requester_user_idRaw: string,
+    @Query('id_entity') id_entityRaw?: string,
   ) {
-    const uid = Number(requester_user_id);
-    if (!Number.isFinite(uid)) {
-      throw new HttpException(
-        { data: null, message: 'requester_user_id must be numeric', statusCode: 400 },
-        HttpStatus.BAD_REQUEST,
-      );
+    const requester_user_id = Number(requester_user_idRaw);
+    if (!Number.isFinite(requester_user_id)) {
+      throw new BadRequestException({
+        data: null,
+        message: 'requester_user_id must be numeric',
+        statusCode: 400,
+      });
     }
-    return await this.service.findAll(id_company, uid);
+
+    let id_entity: string | undefined = undefined;
+    if (
+      id_entityRaw &&
+      id_entityRaw !== '{id_entity}' &&
+      id_entityRaw.toLowerCase() !== 'undefined' &&
+      id_entityRaw.toLowerCase() !== 'null'
+    ) {
+      if (typeof id_entityRaw !== 'string') {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must be a string conforming to the specified constraints',
+          statusCode: 400,
+        });
+      }
+      if (id_entityRaw.length > 50) {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must not exceed 50 characters',
+          statusCode: 400,
+        });
+      }
+      id_entity = id_entityRaw;
+    }
+
+    return this.service.findAll(id_company, requester_user_id, id_entity);
   }
+
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a Format Face record by ID' })

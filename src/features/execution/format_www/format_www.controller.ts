@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe, HttpException, HttpStatus, BadRequestException } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery, ApiBody } from '@nestjs/swagger';
 import { FormatWwwService } from './format_www.service';
 import { CreateFormatWwwDto } from './dto/create-format_www.dto';
@@ -41,6 +41,13 @@ export class FormatWwwController {
   @Get()
   @ApiOperation({ summary: 'Get all Format WWW records for a company' })
   @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({
+    name: 'id_entity',
+    required: false,
+    example: 'ENTITY_123',
+    schema: { type: 'string', maxLength: 50, nullable: true },
+    description: 'Optional entity id. Must be a string with max 50 characters.',
+  })
   @ApiResponse({
     status: 200,
     description: 'Records',
@@ -65,10 +72,42 @@ export class FormatWwwController {
       },
     },
   })
-  @ApiResponse({ status: 500, description: 'Internal error', schema: { example: { data: null, message: 'Internal Server Error: <details>', statusCode: 500 } } })
-  async findAll(@Query('id_company') id_company: string) {
-    return await this.service.findAll(id_company);
+  @ApiResponse({
+    status: 500,
+    description: 'Internal error',
+    schema: { example: { data: null, message: 'Internal Server Error: <details>', statusCode: 500 } },
+  })
+  async findAll(
+    @Query('id_company') id_company: string,
+    @Query('id_entity') id_entityRaw?: string,
+  ) {
+    let id_entity: string | undefined = undefined;
+    if (
+      id_entityRaw &&
+      id_entityRaw !== '{id_entity}' &&
+      id_entityRaw.toLowerCase() !== 'undefined' &&
+      id_entityRaw.toLowerCase() !== 'null'
+    ) {
+      if (typeof id_entityRaw !== 'string') {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must be a string conforming to the specified constraints',
+          statusCode: 400,
+        });
+      }
+      if (id_entityRaw.length > 50) {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must not exceed 50 characters',
+          statusCode: 400,
+        });
+      }
+      id_entity = id_entityRaw;
+    }
+
+    return await this.service.findAll(id_company, id_entity);
   }
+
 
   @Get('visible')
   @ApiOperation({ summary: 'Get visible WWW (meeting o inicial)' })
@@ -78,14 +117,26 @@ export class FormatWwwController {
     name: 'preset',
     required: false,
     example: 'meeting',
-    description: 'meeting = todo excepto Ejecutado, desde hoy hacia atrás; sin preset = inicial'
+    description: 'meeting = todo excepto Ejecutado, desde hoy hacia atrás; sin preset = inicial',
   })
-  @ApiQuery({ name: 'statuses', required: false, example: 'Pendiente,En proceso', description: 'Filtrar por estados (separados por coma)(Atrasado,En proceso, Ejecutado)' })
+  @ApiQuery({
+    name: 'statuses',
+    required: false,
+    example: 'Pendiente,En proceso',
+    description: 'Filtrar por estados (separados por coma)(Atrasado,En proceso, Ejecutado)',
+  })
   @ApiQuery({
     name: 'team_scope',
     required: false,
     example: 'my',
     description: "'my' (por defecto) = mi equipo; 'led' = equipo que lidero (subordinados)",
+  })
+  @ApiQuery({
+    name: 'id_entity',
+    required: false,
+    example: 'ENTITY_123',
+    schema: { type: 'string', maxLength: 50, nullable: true },
+    description: 'Optional entity id. Must be a string with max 50 characters.',
   })
   @ApiResponse({
     status: 200,
@@ -103,14 +154,14 @@ export class FormatWwwController {
             new_when: '2025-03-30',
             created_by: '13474',
             status: 1,
-            created_at: '2025-09-06T10:38:56.000Z'
-          }
+            created_at: '2025-09-06T10:38:56.000Z',
+          },
         ],
         meta: { total: 12 },
         message: 'OK',
-        statusCode: 200
-      }
-    }
+        statusCode: 200,
+      },
+    },
   })
   async findAllVisible(
     @Query('id_company') id_company: string,
@@ -118,7 +169,7 @@ export class FormatWwwController {
     @Query('preset') preset?: 'meeting',
     @Query('statuses') statuses?: string,
     @Query('team_scope') team_scope?: 'my' | 'led',
-
+    @Query('id_entity') id_entityRaw?: string,
   ) {
     const uid = Number(requester_user_id);
     if (!Number.isFinite(uid)) {
@@ -127,14 +178,41 @@ export class FormatWwwController {
         HttpStatus.BAD_REQUEST,
       );
     }
+
+    let id_entity: string | undefined = undefined;
+    if (
+      id_entityRaw &&
+      id_entityRaw !== '{id_entity}' &&
+      id_entityRaw.toLowerCase() !== 'undefined' &&
+      id_entityRaw.toLowerCase() !== 'null'
+    ) {
+      if (typeof id_entityRaw !== 'string') {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must be a string conforming to the specified constraints',
+          statusCode: 400,
+        });
+      }
+      if (id_entityRaw.length > 50) {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must not exceed 50 characters',
+          statusCode: 400,
+        });
+      }
+      id_entity = id_entityRaw;
+    }
+
     return this.service.findAllVisibleWithFilters({
       id_company,
       requester_user_id: uid,
       preset,
       statuses,
       team_scope,
+      id_entity,
     } as any);
   }
+
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a Format WWW record by ID' })

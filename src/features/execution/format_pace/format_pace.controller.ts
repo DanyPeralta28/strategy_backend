@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe, HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, Body, Query, ParseIntPipe, HttpException, HttpStatus, BadRequestException } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery, ApiBody } from '@nestjs/swagger';
 import { FormatPaceService } from './format_pace.service';
 import { CreateFormatPaceDto } from './dto/create-format_pace.dto';
@@ -8,7 +8,7 @@ import { BulkCreateFormatPaceDto } from './dto/bulk-create-format_pace.dto';
 @ApiTags('EXECUTION - Format Pace')
 @Controller('format-pace')
 export class FormatPaceController {
-  constructor(private readonly service: FormatPaceService) {}
+  constructor(private readonly service: FormatPaceService) { }
 
   // ========= POST BULK (único POST) =========
   @Post()
@@ -41,6 +41,13 @@ export class FormatPaceController {
   @ApiOperation({ summary: 'Get visible Format Pace records for a company (bosses/admins/teammates/self)' })
   @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
   @ApiQuery({ name: 'requester_user_id', required: true, example: 13474 })
+  @ApiQuery({
+    name: 'id_entity',
+    required: false,
+    example: 'ENTITY_123',
+    schema: { type: 'string', maxLength: 50, nullable: true },
+    description: 'Optional entity id. Must be a string with max 50 characters.',
+  })
   @ApiResponse({
     status: 200,
     description: 'Format Pace records retrieved',
@@ -76,25 +83,59 @@ export class FormatPaceController {
   @ApiResponse({
     status: 400,
     description: 'Bad request',
-    schema: { example: { data: null, message: 'requester_user_id must be numeric', statusCode: 400 } },
+    schema: {
+      example: { data: null, message: 'requester_user_id must be numeric', statusCode: 400 },
+    },
   })
   @ApiResponse({
     status: 500,
     description: 'Internal error',
-    schema: { example: { data: null, message: 'Internal Server Error: <details>', statusCode: 500 } },
+    schema: {
+      example: { data: null, message: 'Internal Server Error: <details>', statusCode: 500 },
+    },
   })
   async findAll(
     @Query('id_company') id_company: string,
-    @Query('requester_user_id') requester_user_id: string,
+    @Query('requester_user_id') requester_user_idRaw: string,
+    @Query('id_entity') id_entityRaw?: string,
   ) {
-    const uid = Number(requester_user_id);
+    // requester_user_id obligatorio y numérico
+    const uid = Number(requester_user_idRaw);
     if (!Number.isFinite(uid)) {
       throw new HttpException(
         { data: null, message: 'requester_user_id must be numeric', statusCode: 400 },
         HttpStatus.BAD_REQUEST,
       );
     }
-    return await this.service.findAll(id_company, uid);
+
+    // id_entity opcional (string con máx 50 caracteres)
+    let id_entity: string | undefined = undefined;
+    if (
+      id_entityRaw &&
+      id_entityRaw !== '{id_entity}' &&
+      id_entityRaw.toLowerCase() !== 'undefined' &&
+      id_entityRaw.toLowerCase() !== 'null'
+    ) {
+      if (typeof id_entityRaw !== 'string') {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must be a string conforming to the specified constraints',
+          statusCode: 400,
+        });
+      }
+
+      if (id_entityRaw.length > 50) {
+        throw new BadRequestException({
+          data: null,
+          message: 'id_entity must not exceed 50 characters',
+          statusCode: 400,
+        });
+      }
+
+      id_entity = id_entityRaw;
+    }
+
+    return await this.service.findAll(id_company, uid, id_entity);
   }
 
   @Get(':id')

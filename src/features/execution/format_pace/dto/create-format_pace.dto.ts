@@ -1,11 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-validator';
+import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateFormatPaceDto {
   @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   @MaxLength(50)
   id_company: string;
+
+  @ApiProperty({ example: 'SUCURSAL_001', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
+
 
   @ApiProperty({ example: 'Invoice Processing' })
   @IsString()

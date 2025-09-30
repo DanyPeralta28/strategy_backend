@@ -3,5 +3,5 @@ import { CreateFormatWwwDto } from './create-format_www.dto';
 
 export class UpdateFormatWwwDto extends OmitType(
     PartialType(CreateFormatWwwDto),
-    ['id_company'] as const
+    ['id_company', 'id_entity'] as const
 ) {}

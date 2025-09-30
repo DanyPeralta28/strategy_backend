@@ -25,4 +25,7 @@ export class FormatPace {
 
   @Column({ length: 50 })
   id_company: string;
+
+  @Column({ length: 50, nullable: true })
+  id_entity: string;
 }

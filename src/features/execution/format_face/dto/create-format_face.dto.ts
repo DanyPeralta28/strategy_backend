@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-validator';
+import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateFormatFaceDto {
   @ApiProperty({ example: 'Scalingsoft' })
@@ -26,6 +26,12 @@ export class CreateFormatFaceDto {
   @IsArray()
   @ArrayNotEmpty()
   results_list: any[];
+
+  @ApiProperty({ example: 'SUCURSAL_001', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
 
   @ApiProperty({ example: 1 })
   @IsInt()

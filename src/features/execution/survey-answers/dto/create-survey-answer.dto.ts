@@ -8,6 +8,12 @@ export class CreateExecutionSurveyAnswerDto {
   @MaxLength(50)
   id_company: string;
 
+  @ApiProperty({ example: 'SUCURSAL_001', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
+
   @ApiProperty({ example: '1', description: 'Campaign identifier (maps to id_campaign)' })
   @IsNumber()
   @Min(1)

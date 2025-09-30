@@ -5,6 +5,9 @@ export class ExecutionSurveyCampaign {
   @PrimaryGeneratedColumn({ name: 'survey_campaign_id' })
   id: number;
 
+  @Column({ length: 250, nullable: true })
+  campaign_name?: string;
+
   @Column({ length: 100, nullable: true })
   created_by?: string;
 
@@ -16,4 +19,7 @@ export class ExecutionSurveyCampaign {
 
   @Column({ length: 50, name: 'id_company' })
   id_company: string;
+
+  @Column({ length: 50, nullable: true })
+  id_entity: string;
 }

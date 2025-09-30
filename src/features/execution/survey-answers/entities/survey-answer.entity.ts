@@ -27,4 +27,7 @@ export class ExecutionSurveyAnswer {
 
   @Column({ length: 50, name: 'id_company' })
   id_company: string;
+
+  @Column({ length: 50, nullable: true })
+  id_entity: string;
 }
