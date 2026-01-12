@@ -11,6 +11,10 @@ export class FormatPurpose {
   @Column({ length: 50, nullable: true })
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @ApiProperty({ example: 'Our goal is to expand operations in Central America' })
   @Column({ length: 500, nullable: true })
   purpose_description: string;

@@ -51,6 +51,13 @@ export class FormatTerritoriesController {
     example: 'Scalingsoft',
     description: 'Company identifier',
   })
+  @ApiQuery({
+    name: 'id_entity',
+    required: true,
+    type: String,
+    example: 'SUCURSAL_001',
+    description: 'Entity identifier',
+  })
   @ApiResponse({
     status: 200,
     description: 'List of territories',
@@ -62,8 +69,8 @@ export class FormatTerritoriesController {
       },
     },
   })
-  async findAll(@Query('id_company') id_company: string) {
-    return this.service.findAll(id_company);
+  async findAll(@Query('id_company') id_company: string, @Query('id_entity') id_entity: string) {
+    return this.service.findAll(id_company, id_entity);
   }
 
   @Get(':id')

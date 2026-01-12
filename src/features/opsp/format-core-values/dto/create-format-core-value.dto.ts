@@ -28,4 +28,9 @@ export class CreateFormatCoreValuesDto {
   @IsString()
   @MaxLength(50)
   id_company: string;
+
+  @ApiProperty({ example: 'Entity001' })
+  @IsString()
+  @MaxLength(50)
+  id_entity: string;
 }

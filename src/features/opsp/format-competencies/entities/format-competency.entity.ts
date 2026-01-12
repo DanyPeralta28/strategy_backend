@@ -11,6 +11,10 @@ export class FormatCompetency {
   @Column({ length: 50 })
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @ApiProperty({ example: 'Customer Service' })
   @Column({ length: 250, nullable: true })
   core_competency: string;

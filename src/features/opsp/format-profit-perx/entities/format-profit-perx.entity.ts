@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('opsp_format_profit_per_x')
@@ -8,7 +9,11 @@ export class FormatProfitPerX {
   @Column({ length: 50, nullable: false })
   id_company: string;
 
-  @Column({ length: 100, nullable: true })
+ @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
+  @Column({ type: 'text', nullable: true })
   profit_per_x_definition: string;
 
   @Column({ type: 'int', default: 1 })

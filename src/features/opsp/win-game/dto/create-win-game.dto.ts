@@ -13,6 +13,12 @@ export class CreateWinGameDto {
   @MaxLength(50)
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', description: 'Entity identifier', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
+  
   @ApiProperty({
     example: '2025-12-31',
     description: 'Deadline for achieving the game objective',

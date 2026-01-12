@@ -11,6 +11,10 @@ export class FormatKpiBalance {
   @Column({ length: 50 })
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @ApiProperty({ example: { engagement: 85, satisfaction: 90 } })
   @Column({ type: 'json' })
   employee_balance: any;

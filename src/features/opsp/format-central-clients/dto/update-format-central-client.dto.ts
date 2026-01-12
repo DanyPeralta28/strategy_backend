@@ -3,5 +3,5 @@ import { CreateFormatCentralClientDto } from './create-format-central-client.dto
 
 export class UpdateFormatCentralClientDto extends OmitType(
   PartialType(CreateFormatCentralClientDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

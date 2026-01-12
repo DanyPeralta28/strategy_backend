@@ -41,13 +41,13 @@ export class CreateFormatVisionDto {
     example: [
       {
         prioridad: 'Expand into new markets',
-        plazo: '2025',
+        plazo: '2025-01-01 00:00:00',
         esOKR: true,
         subprioridades: ['Open branch in Costa Rica', 'Establish logistics'],
       },
       {
         prioridad: 'Improve UX',
-        plazo: 'Q3 2025',
+        plazo: '2025-09-30 00:00:00',
         esOKR: false,
         subprioridades: ['Mobile redesign', 'A/B testing'],
       },
@@ -109,6 +109,11 @@ export class CreateFormatVisionDto {
   @IsString()
   @MaxLength(50)
   id_company: string;
+
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
 
   @ApiProperty({
     description: 'Vision blocks structured by period',

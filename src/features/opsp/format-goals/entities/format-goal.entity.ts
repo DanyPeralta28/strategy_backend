@@ -11,6 +11,10 @@ export class FormatGoal {
   @Column({ length: 50 })
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @ApiProperty({ type: 'object', description: 'Metas a 3–5 años' })
   @Column({ type: 'json', nullable: true })
   three_to_five_years: any;

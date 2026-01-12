@@ -11,6 +11,10 @@ export class CreateFormatGoalDto {
   @ApiProperty({ example: 'Scalingsoft' })
   @IsString()
   id_company: string;
+  
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsString()
+  id_entity?: string;
 
   @ApiProperty({ example: 'admin_user' })
   @IsString()

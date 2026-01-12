@@ -3,5 +3,5 @@ import { CreateFormatFlywheelDto } from './create-format-flywheel.dto';
 
 export class UpdateFormatFlywheelDto extends OmitType(
   PartialType(CreateFormatFlywheelDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

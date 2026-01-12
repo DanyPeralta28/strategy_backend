@@ -42,4 +42,8 @@ export class FormatFlywheel {
   @ApiProperty({ example: 'Scalingsoft' })
   @Column({ length: 50, nullable: false })
   id_company: string;
+
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
 }

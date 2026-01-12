@@ -11,8 +11,14 @@ export class FormatBhag {
   @Column({ length: 50 })
   id_company: string;
 
+  @Column({ length: 50, nullable: true })
+  id_entity: string;
+
   @ApiProperty({ example: 'Be the #1 digital bank in Central America' })
-  @Column({ length: 250, nullable: true })
+  @Column({
+    type: 'text',
+    nullable: true,
+  })
   description: string;
 
   @ApiProperty({ example: 1 })

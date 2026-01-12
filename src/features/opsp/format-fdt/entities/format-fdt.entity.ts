@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('opsp_format_fdt')
@@ -7,6 +8,10 @@ export class FormatFdt {
 
   @Column({ length: 50 })
   id_company: string;
+
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
 
   /*  Las tres columnas cambiaron a tipo JSON  */
   @Column({ type: 'json', nullable: true })

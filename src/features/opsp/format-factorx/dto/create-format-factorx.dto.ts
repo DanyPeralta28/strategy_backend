@@ -6,6 +6,11 @@ export class CreateFormatFactorXDto {
   @IsString()
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsOptional()
+  @IsString()
+  id_entity?: string;
+
   @ApiProperty({
     type: 'array',
     example: [

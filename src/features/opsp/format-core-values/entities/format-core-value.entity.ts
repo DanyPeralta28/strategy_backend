@@ -34,4 +34,8 @@ export class FormatCoreValue {
   @Column({ length: 50, nullable: true })
   @ApiProperty({ example: 'Scalingsoft', maxLength: 50 })
   id_company: string;
+
+  @Column({ length: 50, nullable: true })
+  @ApiProperty({ example: 'Entity001', required: false })
+  id_entity?: string;
 }

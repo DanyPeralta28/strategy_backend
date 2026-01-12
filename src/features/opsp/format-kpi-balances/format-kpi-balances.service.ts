@@ -59,10 +59,10 @@ export class FormatKpiBalancesService {
     }
   }
 
-  async findAll(id_company: string) {
+  async findAll(id_company: string, id_entity: string) {
     try {
       const results = await this.repo.find({
-        where: { id_company, status: 1 },
+        where: { id_company, id_entity, status: 1 },
         order: { id: 'DESC' },
       });
       return {

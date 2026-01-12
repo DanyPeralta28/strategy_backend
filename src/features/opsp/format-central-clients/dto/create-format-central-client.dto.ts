@@ -6,6 +6,11 @@ export class CreateFormatCentralClientDto {
   @IsString()
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsOptional()
+  @IsString()
+  id_entity?: string;
+
   @ApiProperty({ example: '25 años, mujer, educación universitaria' })
   @IsString()
   age_gender_education: string;

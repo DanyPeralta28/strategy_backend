@@ -68,10 +68,10 @@ export class FormatStratasService {
     }
   }
 
-  async findAll(id_company: string) {
+  async findAll(id_company: string, id_entity: string) {
     try {
       const results = await this.repo.find({
-        where: { status: 1, id_company },
+        where: { status: 1, id_company, id_entity },
       });
 
       return {

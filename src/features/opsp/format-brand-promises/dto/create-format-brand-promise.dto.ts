@@ -6,6 +6,10 @@ export class CreateFormatBrandPromiseDto {
   @IsString()
   id_company: string;
 
+  @ApiProperty({ example: 'SUCURSAL_001' })
+  @IsString()
+  id_entity?: string;
+
   @ApiProperty({ example: 'Rapidez garantizada' })
   @IsString()
   primary_promise: string;

@@ -11,6 +11,10 @@ export class FormatFactorX {
   @Column({ length: 50 })
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001' })
+  @Column({ length: 50 })
+  id_entity: string;
+
   @ApiProperty({
     example: [
       { step_order: 1, step_label: 'Inicio', has_inefficiency: false, symbol: '' },

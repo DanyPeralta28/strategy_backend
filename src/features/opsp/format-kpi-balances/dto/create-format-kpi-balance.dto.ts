@@ -6,6 +6,11 @@ export class CreateFormatKpiBalanceDto {
   @IsString()
   @MaxLength(50)
   id_company: string;
+  
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
 
   @ApiProperty({
     description: 'Grouped KPI data by area',

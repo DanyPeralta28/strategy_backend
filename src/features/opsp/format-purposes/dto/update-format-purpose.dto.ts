@@ -3,5 +3,5 @@ import { CreateFormatPurposeDto } from './create-format-purpose.dto';
 
 export class UpdateFormatPurposeDto extends OmitType(
   PartialType(CreateFormatPurposeDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

@@ -8,6 +8,9 @@ export class ConsistentAction {
   @Column({ length: 50 })
   id_company: string;
 
+  @Column({ length: 50, nullable: true })
+  id_entity: string;
+
   /** Lista de acciones en formato JSON */
   @Column({ type: 'json', nullable: true })
   action: any[];

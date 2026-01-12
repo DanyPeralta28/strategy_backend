@@ -7,6 +7,11 @@ export class CreateFormatCompetencyDto {
   @MaxLength(50)
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsOptional()
+  @IsString()
+  id_entity?: string;
+
   @ApiProperty({ example: 'Customer Service' })
   @IsOptional()
   @IsString()

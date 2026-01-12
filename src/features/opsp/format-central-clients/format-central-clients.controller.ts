@@ -45,6 +45,13 @@ export class FormatCentralClientsController {
     example: 'Scalingsoft',
     description: 'Company identifier',
   })
+  @ApiQuery({
+    name: 'id_entity',
+    required: true,
+    type: String,
+    example: 'Entity001',
+    description: 'Entity identifier',
+  })
   @ApiResponse({
     status: 200,
     description: 'List of Central Client records',
@@ -66,8 +73,8 @@ export class FormatCentralClientsController {
       },
     },
   })
-  async findAll(@Query('id_company') id_company: string) {
-    return this.service.findAll(id_company);
+  async findAll(@Query('id_company') id_company: string, @Query('id_entity') id_entity: string) {
+    return this.service.findAll(id_company, id_entity);
   }
 
   @Get(':id')

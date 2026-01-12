@@ -14,6 +14,11 @@ export class CreateFormatFdtDto {
   @MaxLength(50)
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false, description: 'Entity identifier' })
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
+
   /* --- Tendencias globales --- */
   @ApiProperty({
     description: 'Global trends affecting the company',

@@ -8,6 +8,9 @@ export class FormatVision {
   @Column({ length: 50 })
   id_company: string;
 
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @Column({ length: 250 })
   core_values: string;
 

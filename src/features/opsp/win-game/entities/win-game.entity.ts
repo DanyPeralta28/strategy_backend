@@ -8,6 +8,9 @@ export class WinGameDashboard {
   @Column({ length: 50 })
   id_company: string;
 
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @Column({ type: 'date', nullable: true })
   deadline: Date;
 

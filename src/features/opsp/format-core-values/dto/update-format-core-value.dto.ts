@@ -4,5 +4,5 @@ import { OmitType } from '@nestjs/swagger';
 
 export class UpdateFormatCoreValuesDto extends OmitType(
   PartialType(CreateFormatCoreValuesDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

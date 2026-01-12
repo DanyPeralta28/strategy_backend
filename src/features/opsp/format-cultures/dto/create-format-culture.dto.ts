@@ -7,10 +7,16 @@ export class CreateFormatCultureDto {
   @MaxLength(50)
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
+
   @ApiProperty({ example: 'Innovation Culture' })
   @IsOptional()
   @IsString()
-  @MaxLength(150)
+  @MaxLength(500)
   culture_name?: string;
 
   @ApiProperty({
@@ -18,7 +24,7 @@ export class CreateFormatCultureDto {
   })
   @IsOptional()
   @IsString()
-  @MaxLength(2000)
+  @MaxLength(5000)
   culture_description?: string;
 
   @ApiProperty({ example: 'admin_user' })

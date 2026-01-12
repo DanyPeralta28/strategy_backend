@@ -11,12 +11,17 @@ export class FormatCulture {
   @Column({ length: 50 })
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @ApiProperty({ example: 'Innovation Culture' })
-  @Column({ length: 150, nullable: true })
+  @Column({ length: 500, nullable: true })
   culture_name: string;
 
   @ApiProperty({ example: 'We foster innovation through collaborative work and learning.' })
-  @Column({ length: 2000, nullable: true })
+  @Column({ type: 'text', nullable: true })
+
   culture_description: string;
 
   @ApiProperty({ example: 1 })

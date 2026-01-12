@@ -71,6 +71,7 @@ export class FormatStratasController {
   @Get()
   @ApiOperation({ summary: 'Get all format stratas by company' })
   @ApiQuery({ name: 'id_company', type: String, required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_entity', type: String, required: true, example: 'Entity001' })
   @ApiResponse({
     status: 200,
     description: 'List of format stratas',
@@ -88,8 +89,8 @@ export class FormatStratasController {
       },
     },
   })
-  async findAll(@Query('id_company') id_company: string) {
-    return await this.service.findAll(id_company);
+  async findAll(@Query('id_company') id_company: string, @Query('id_entity') id_entity: string) {
+    return await this.service.findAll(id_company, id_entity);
   }
 
   @Put(':id')

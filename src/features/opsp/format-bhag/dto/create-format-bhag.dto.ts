@@ -7,10 +7,19 @@ export class CreateFormatBhagDto {
   @MaxLength(50)
   id_company: string;
 
-  @ApiProperty({ example: 'Be the #1 digital bank in Central America' })
+  @ApiProperty({ example: 'SUCURSAL_001' })
   @IsOptional()
   @IsString()
-  @MaxLength(250)
+  @MaxLength(50)
+  id_entity?: string;
+
+  @ApiProperty({
+    example: 'Be the #1 digital bank in Central America',
+    maxLength: 10000,
+  })
+  @IsOptional()
+  @IsString()
+  @MaxLength(5000)
   description?: string;
 
   @ApiProperty({ example: 'admin_user' })

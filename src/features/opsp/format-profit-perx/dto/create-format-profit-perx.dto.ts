@@ -6,6 +6,10 @@ export class CreateFormatProfitPerXDto {
   @IsString()
   id_company: string;
 
+  @ApiProperty({ example: 'Entity001', required: false })
+  @IsString()
+  id_entity?: string;
+  
   @ApiProperty({ example: 'Ganancia por cliente' })
   @IsString()
   profit_per_x_definition: string;

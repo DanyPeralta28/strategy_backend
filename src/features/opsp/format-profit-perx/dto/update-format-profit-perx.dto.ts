@@ -3,5 +3,5 @@ import { CreateFormatProfitPerXDto } from './create-format-profit-perx.dto';
 
 export class UpdateFormatProfitPerXDto extends OmitType(
   PartialType(CreateFormatProfitPerXDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

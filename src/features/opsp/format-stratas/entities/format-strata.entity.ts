@@ -11,6 +11,10 @@ export class FormatStrata {
   @Column({ length: 50 })
   id_company: string;
 
+ @ApiProperty({ example: 'Entity001', required: false })
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+  
   @ApiProperty({ example: 'En mis palabras: brindamos soluciones integrales.' })
   @Column({ length: 1000, nullable: true })
   own_words: string;

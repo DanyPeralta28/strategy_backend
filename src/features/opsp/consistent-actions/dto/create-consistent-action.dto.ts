@@ -1,12 +1,18 @@
 // dto/create-consistent-action.dto.ts
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-validator';
+import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateConsistentActionDto {
   @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;
+
+  @ApiProperty({ example: 'SUCURSAL_001' })
+  @IsOptional()
+  @IsString()
+  @MaxLength(50)
+  id_entity?: string;
 
   @ApiProperty({
     description: 'Consistent actions to execute',

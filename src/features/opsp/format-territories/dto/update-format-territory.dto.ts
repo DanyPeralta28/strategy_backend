@@ -3,5 +3,5 @@ import { CreateFormatTerritoryDto } from './create-format-territory.dto';
 
 export class UpdateFormatTerritoryDto extends OmitType(
   PartialType(CreateFormatTerritoryDto),
-  ['id_company'] as const,
+  ['id_company', 'id_entity'] as const,
 ) {}

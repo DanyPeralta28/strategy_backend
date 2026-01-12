@@ -11,6 +11,9 @@ export class FormatCentralClient {
   @Column({ length: 50 })
   id_company: string;
 
+  @Column({ length: 50, nullable: true })
+  id_entity?: string;
+
   @ApiProperty({ example: '25 años, mujer, educación universitaria' })
   @Column({ length: 500, nullable: true })
   age_gender_education: string;
