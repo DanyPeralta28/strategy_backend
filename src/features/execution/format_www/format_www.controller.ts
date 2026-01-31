@@ -40,7 +40,7 @@ export class FormatWwwController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Format WWW records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiQuery({
     name: 'id_entity',
     required: false,
@@ -56,7 +56,7 @@ export class FormatWwwController {
         data: [
           {
             id: 2,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             what: 'Entregar el plan de marketing',
             who: 'Julio An leu',
             when: '2025-01-28',
@@ -111,7 +111,7 @@ export class FormatWwwController {
 
   @Get('visible')
   @ApiOperation({ summary: 'Get visible WWW (meeting o inicial)' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiQuery({ name: 'requester_user_id', required: true, example: 13474 })
   @ApiQuery({
     name: 'preset',
@@ -146,7 +146,7 @@ export class FormatWwwController {
         data: [
           {
             id: 3,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             what: 'Entregar el plan de marketing',
             who: 'Julio An leu',
             when: '2025-01-28',
@@ -224,7 +224,7 @@ export class FormatWwwController {
       example: {
         data: {
           id: 12,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           what: 'Entregar el plan de marketing',
           who: 'Julio An leu',
           when: '2025-01-28',

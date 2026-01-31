@@ -124,7 +124,7 @@ export class CreateFollowUpPriorityWeeksDto {
   @MaxLength(255)
   game_color_priority?: string;
 
-  @ApiProperty({ example: 'Scalingsoft', required: false })
+  @ApiProperty({ example: '1', required: false })
   @IsOptional()
   @IsString()
   @MaxLength(50)

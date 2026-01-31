@@ -2,7 +2,7 @@ import { IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatBrandPromiseDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   id_company: string;
 
@@ -22,7 +22,7 @@ export class CreateFormatBrandPromiseDto {
   @IsString()
   tertiary_promise: string;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   created_by: string;
 }

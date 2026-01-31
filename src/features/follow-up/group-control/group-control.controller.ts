@@ -25,7 +25,7 @@ export class GroupControlController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Group Control records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Group Control records retrieved',

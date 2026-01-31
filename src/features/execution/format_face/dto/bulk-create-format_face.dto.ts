@@ -8,7 +8,7 @@ export class BulkCreateFormatFaceDto {
     type: [CreateFormatFaceDto],
     example: [
       {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         function_name: 'Reconciliation',
         accountable_name: 'John Doe',
         kpi_list: [{ kpi: 'On-time Delivery', target: 95 }],
@@ -17,7 +17,7 @@ export class BulkCreateFormatFaceDto {
         created_by: '13474'
       },
       {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         function_name: 'Collections',
         accountable_name: 'Jane Smith',
         kpi_list: [{ kpi: 'Collection Rate', target: 90 }],

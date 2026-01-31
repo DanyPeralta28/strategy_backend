@@ -42,14 +42,14 @@ export class FormatCentralClientsController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
   @ApiQuery({
     name: 'id_entity',
     required: true,
     type: String,
-    example: 'Entity001',
+    example: '1',
     description: 'Entity identifier',
   })
   @ApiResponse({
@@ -60,11 +60,11 @@ export class FormatCentralClientsController {
         data: [
           {
             id: 1,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             core_client_name: 'Ana Morales',
             age_gender_education: '25 años, mujer, educación universitaria',
             status: 1,
-            created_by: 'admin_user',
+            created_by: '13474',
             created_at: '2025-06-09T00:00:00.000Z',
           },
         ],
@@ -92,10 +92,10 @@ export class FormatCentralClientsController {
       example: {
         data: {
           id: 1,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           core_client_name: 'Ana Morales',
           success_metrics: 'Alcanzar metas personales y laborales',
-          created_by: 'admin_user',
+          created_by: '13474',
           status: 1,
           created_at: '2025-06-09T00:00:00.000Z',
         },

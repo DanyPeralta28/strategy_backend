@@ -17,7 +17,7 @@ export class CashFormatIelController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         periods_list: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
         impact_items_list: [
           { label: 'Incremento (%) de integrantes tipo “A”…', rank: 12 },
@@ -25,7 +25,7 @@ export class CashFormatIelController {
           { label: 'Optimizar el Desempeño del Producto…', rank: 10 },
         ],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })
@@ -45,7 +45,7 @@ export class CashFormatIelController {
 
   @Get()
   @ApiOperation({ summary: 'Get all IEL records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'IEL formats retrieved',
@@ -53,7 +53,7 @@ export class CashFormatIelController {
       example: {
         data: [{
           id: 15,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           periods_list: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
           impact_items_list: [
             { label: 'Incremento (%) de integrantes tipo “A”…', rank: 12 },
@@ -61,7 +61,7 @@ export class CashFormatIelController {
             { label: 'Optimizar el Desempeño del Producto…', rank: 10 },
           ],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         }],
         message: 'OK',
@@ -88,11 +88,11 @@ export class CashFormatIelController {
       example: {
         data: {
           id: 15,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           periods_list: [{ year: '2025', revenue: 20, cogs: 40, grossMargin: 10, directLabor: 23 }],
           impact_items_list: [{ label: 'Optimizar el Desempeño…', rank: 10 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         },
         message: 'OK',
@@ -123,7 +123,7 @@ export class CashFormatIelController {
         periods_list: [{ year: '2026', revenue: 30, cogs: 35, grossMargin: 12, directLabor: 22 }],
         impact_items_list: [{ label: 'Nueva prioridad', rank: 9 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })

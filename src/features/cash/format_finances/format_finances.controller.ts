@@ -16,11 +16,11 @@ export class CashFormatFinancesController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         evaluations_list: [{ store_id: 1, score: 85 }],
         attributes_list: [{ attr: 'ROI', value: 0.23 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })
@@ -40,7 +40,7 @@ export class CashFormatFinancesController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Finances records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Finances formats retrieved',
@@ -48,11 +48,11 @@ export class CashFormatFinancesController {
       example: {
         data: [{
           id: 11,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           evaluations_list: [{ store_id: 1, score: 85 }],
           attributes_list: [{ attr: 'ROI', value: 0.23 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         }],
         message: 'OK',
@@ -79,11 +79,11 @@ export class CashFormatFinancesController {
       example: {
         data: {
           id: 11,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           evaluations_list: [{ store_id: 1, score: 85 }],
           attributes_list: [{ attr: 'ROI', value: 0.23 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         },
         message: 'OK',
@@ -114,7 +114,7 @@ export class CashFormatFinancesController {
         evaluations_list: [{ store_id: 2, score: 90 }],
         attributes_list: [{ attr: 'CAC', value: 120 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })

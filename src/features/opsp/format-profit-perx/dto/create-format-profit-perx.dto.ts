@@ -2,11 +2,11 @@ import { IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatProfitPerXDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   @IsString()
   id_entity?: string;
   
@@ -14,7 +14,7 @@ export class CreateFormatProfitPerXDto {
   @IsString()
   profit_per_x_definition: string;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   created_by: string;
 }

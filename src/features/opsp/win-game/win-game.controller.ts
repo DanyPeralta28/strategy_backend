@@ -25,8 +25,8 @@ export class WinGameController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Win Game records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
-  @ApiQuery({ name: 'id_entity', required: false, example: 'Entity001' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
+  @ApiQuery({ name: 'id_entity', required: false, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Win Game records retrieved',

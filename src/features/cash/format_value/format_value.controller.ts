@@ -15,11 +15,11 @@ export class CashFormatValueController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         area_list: [{ area: 'Finance', score: 95 }],
         priority_list: [{ priority: 'High', weight: 0.5 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })
@@ -39,7 +39,7 @@ export class CashFormatValueController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Value records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Value formats retrieved',
@@ -47,11 +47,11 @@ export class CashFormatValueController {
       example: {
         data: [{
           id: 12,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           area_list: [{ area: 'Finance', score: 95 }],
           priority_list: [{ priority: 'High', weight: 0.5 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         }],
         message: 'OK',
@@ -78,11 +78,11 @@ export class CashFormatValueController {
       example: {
         data: {
           id: 12,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           area_list: [{ area: 'Finance', score: 95 }],
           priority_list: [{ priority: 'High', weight: 0.5 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         },
         message: 'OK',
@@ -113,7 +113,7 @@ export class CashFormatValueController {
         area_list: [{ area: 'Sales', score: 88 }],
         priority_list: [{ priority: 'Medium', weight: 0.3 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })

@@ -8,7 +8,7 @@ export class BulkCreateFormatPaceDto {
     type: [CreateFormatPaceDto],
     example: [
       {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         id_entity: 'SUCURSAL_001',
         process_name: 'Invoice Processing',
         person_in_charge_name: 'John Doe',
@@ -17,7 +17,7 @@ export class BulkCreateFormatPaceDto {
         created_by: '13474'
       },
       {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         id_entity: 'SUCURSAL_001',
         process_name: 'Payment Approval',
         person_in_charge_name: 'Jane Smith',

@@ -7,11 +7,11 @@ export class FormatKpiBalance {
   @PrimaryGeneratedColumn({ name: 'balance_id' })
   id: number;
 
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @Column({ length: 50 })
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   @Column({ length: 50, nullable: true })
   id_entity?: string;
 
@@ -47,7 +47,7 @@ export class FormatKpiBalance {
   @Column({ type: 'int', default: 1 })
   status: number;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @Column({ length: 100 })
   created_by: string;
 

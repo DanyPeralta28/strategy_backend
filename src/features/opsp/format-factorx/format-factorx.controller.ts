@@ -43,14 +43,14 @@ export class FormatFactorXController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
   @ApiQuery({
     name: 'id_entity',
     required: true,
     type: String,
-    example: 'Entity001',
+    example: '1',
     description: 'Entity identifier',
   })
   @ApiResponse({
@@ -61,7 +61,7 @@ export class FormatFactorXController {
         data: [
           {
             id: 1,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             process_flow_steps: [],
             status: 1,
             created_by: 'admin',
@@ -92,7 +92,7 @@ export class FormatFactorXController {
       example: {
         data: {
           id: 1,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           process_flow_steps: [],
           created_by: 'admin',
           created_at: '2025-06-09T00:00:00.000Z',

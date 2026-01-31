@@ -2,12 +2,12 @@ import { IsString, MaxLength, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatCultureDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   @MaxLength(50)
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   @IsOptional()
   @IsString()
   @MaxLength(50)
@@ -27,7 +27,7 @@ export class CreateFormatCultureDto {
   @MaxLength(5000)
   culture_description?: string;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   @MaxLength(100)
   created_by: string;

@@ -9,12 +9,12 @@ import {
 
 export class CreateFormatFdtDto {
   /* --- Clave de compañía --- */
-  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
+  @ApiProperty({ example: '1', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', required: false, description: 'Entity identifier' })
+  @ApiProperty({ example: '1', required: false, description: 'Entity identifier' })
   @IsString()
   @MaxLength(50)
   id_entity?: string;
@@ -65,7 +65,7 @@ export class CreateFormatFdtDto {
 
   /* --- Usuario creador --- */
   @ApiProperty({
-    example: 'admin_user',
+    example: '13474',
     description: 'User that created the record',
   })
   @IsString()

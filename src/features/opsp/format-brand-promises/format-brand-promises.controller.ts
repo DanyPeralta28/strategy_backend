@@ -42,7 +42,7 @@ export class FormatBrandPromiseController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
   @ApiQuery({
@@ -60,7 +60,7 @@ export class FormatBrandPromiseController {
         data: [
           {
             id: 1,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             core_client_description: 'Cliente que busca rapidez',
             primary_promise: 'Rapidez',
             secondary_promise: 'Transparencia',
@@ -89,7 +89,7 @@ export class FormatBrandPromiseController {
       example: {
         data: {
           id: 1,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           core_client_description: 'Cliente que busca rapidez',
           primary_promise: 'Rapidez',
           secondary_promise: 'Transparencia',

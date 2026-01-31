@@ -38,7 +38,7 @@ export class FormatFaceController {
 
   @Get('visible')
   @ApiOperation({ summary: 'Get visible Format Face for the requester (bosses/admins/teammates/self)' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiQuery({ name: 'requester_user_id', required: true, example: 13474 })
   @ApiQuery({
     name: 'id_entity',
@@ -59,10 +59,10 @@ export class FormatFaceController {
             accountable_name: 'James Smith',
             kpi_list: [{ kpi: 'Collection Rate', target: 90 }],
             results_list: [{ month: '2025-09', result: 91 }],
-            created_by: 'admin_user',
+            created_by: '13474',
             status: 1,
             created_at: '02/09/2025 20:33:20',
-            id_company: 'Scalingsoft',
+            id_company: '1',
           },
           {
             id: 3,
@@ -73,7 +73,7 @@ export class FormatFaceController {
             created_by: '13474',
             status: 1,
             created_at: '06/09/2025 10:38:56',
-            id_company: 'Scalingsoft',
+            id_company: '1',
           },
         ],
         message: 'OK',
@@ -154,13 +154,13 @@ export class FormatFaceController {
       example: {
         data: {
           id: 12,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           function_name: 'Reconciliation',
           accountable_name: 'John Doe',
           kpi_list: [{ kpi: 'On-time Delivery', target: 95 }],
           results_list: [{ month: '2025-08', result: 96 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         },
         message: 'OK',
@@ -193,7 +193,7 @@ export class FormatFaceController {
         kpi_list: [{ kpi: 'Collection Rate', target: 90 }],
         results_list: [{ month: '2025-09', result: 91 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })

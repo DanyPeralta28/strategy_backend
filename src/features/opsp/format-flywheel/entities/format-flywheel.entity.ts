@@ -31,7 +31,7 @@ export class FormatFlywheel {
   @Column({ type: 'int', default: 1 })
   status: number;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @Column({ length: 100, nullable: true })
   created_by: string;
 
@@ -39,11 +39,11 @@ export class FormatFlywheel {
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: Date;
 
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @Column({ length: 50, nullable: false })
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   @Column({ length: 50, nullable: true })
   id_entity?: string;
 }

@@ -2,12 +2,12 @@ import { IsString, MaxLength, IsOptional, IsObject } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatKpiBalanceDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   @MaxLength(50)
   id_company: string;
   
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   @IsString()
   @MaxLength(50)
   id_entity?: string;
@@ -49,7 +49,7 @@ export class CreateFormatKpiBalanceDto {
   @IsString()
   compliance_date: string;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   @MaxLength(100)
   created_by: string;

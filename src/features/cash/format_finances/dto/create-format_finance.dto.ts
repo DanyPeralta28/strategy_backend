@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-validator';
 
 export class CreateCashFormatFinancesDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   @MaxLength(50)
   id_company: string;
@@ -21,7 +21,7 @@ export class CreateCashFormatFinancesDto {
   @IsInt()
   status: number;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   @MaxLength(100)
   created_by: string;

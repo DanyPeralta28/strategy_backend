@@ -32,7 +32,7 @@ export class FormatBhagController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
   @ApiQuery({

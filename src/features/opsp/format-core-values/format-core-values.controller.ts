@@ -32,7 +32,7 @@ export class FormatCoreValuesController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
 
@@ -40,7 +40,7 @@ export class FormatCoreValuesController {
     name: 'id_entity',
     required: true,
     type: String,
-    example: 'Entity001',
+    example: '1',
     description: 'Entity identifier',
   })
   @ApiResponse({
@@ -71,8 +71,8 @@ export class FormatCoreValuesController {
           value_title: 'Integridad',
           short_description: 'Actuamos con ética y transparencia',
           long_description: 'Nuestra empresa fomenta la honestidad como pilar...',
-          created_by: 'admin_user',
-          id_company: 'Scalingsoft',
+          created_by: '13474',
+          id_company: '1',
         },
         message: 'OK',
         statusCode: 200,

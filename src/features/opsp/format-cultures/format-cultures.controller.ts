@@ -48,14 +48,14 @@ export class FormatCulturesController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
   @ApiQuery({
     name: 'id_entity',
     required: true,
     type: String,
-    example: 'Entity001',
+    example: '1',
     description: 'Entity identifier',
   })
   @ApiResponse({

@@ -43,7 +43,7 @@ export class CreateGroupControlDto {
   @IsString()
   weekly_time?: string;
 
-  @ApiProperty({ example: 'Scalingsoft', description: 'Identificador de la compañía' })
+  @ApiProperty({ example: '1', description: 'Identificador de la compañía' })
   @IsOptional()
   @IsString()
   @MaxLength(50)

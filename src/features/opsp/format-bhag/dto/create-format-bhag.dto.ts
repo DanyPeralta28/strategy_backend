@@ -2,7 +2,7 @@ import { IsString, MaxLength, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatBhagDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   @MaxLength(50)
   id_company: string;
@@ -22,7 +22,7 @@ export class CreateFormatBhagDto {
   @MaxLength(5000)
   description?: string;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   @MaxLength(100)
   created_by: string;

@@ -24,7 +24,7 @@ export class FormatCoreValue {
   status: number;
 
   @Column({ length: 100, nullable: true })
-  @ApiProperty({ example: 'admin_user', maxLength: 100 })
+  @ApiProperty({ example: '13474', maxLength: 100 })
   created_by: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
@@ -32,10 +32,10 @@ export class FormatCoreValue {
   created_at: Date;
 
   @Column({ length: 50, nullable: true })
-  @ApiProperty({ example: 'Scalingsoft', maxLength: 50 })
+  @ApiProperty({ example: '1', maxLength: 50 })
   id_company: string;
 
   @Column({ length: 50, nullable: true })
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   id_entity?: string;
 }

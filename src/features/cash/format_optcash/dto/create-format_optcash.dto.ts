@@ -3,7 +3,7 @@ import { IsString, IsInt, MaxLength, IsArray, ArrayNotEmpty } from 'class-valida
 import { IdeaSectionDto } from './idea-section.dto';
 
 export class CreateCashFormatOptcashDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   @MaxLength(50)
   id_company: string;
@@ -46,7 +46,7 @@ export class CreateCashFormatOptcashDto {
   @IsInt()
   status: number;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   @MaxLength(100)
   created_by: string;

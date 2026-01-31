@@ -28,7 +28,7 @@ export class FollowUpPriorityWeeksController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Priority Week records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Priority Week records retrieved',
@@ -77,7 +77,7 @@ export class FollowUpPriorityWeeksController {
 
   @Get('group/:id_company/:id_entity/:team/:week')
   @ApiOperation({ summary: 'Obtiene prioridades filtradas por semana y configuración de vista' })
-  @ApiParam({ name: 'id_company', example: 'Scalingsoft' })
+  @ApiParam({ name: 'id_company', example: '1' })
   @ApiParam({ name: 'id_entity', example: 'SUCURSAL_001' })
   @ApiParam({ name: 'team', example: 'Tecnología' })
   @ApiParam({ name: 'week', example: 1 })
@@ -96,7 +96,7 @@ export class FollowUpPriorityWeeksController {
 
   @Get('group/by-users/:id_company/:id_entity/:team/:id_users')
   @ApiOperation({ summary: 'Obtiene prioridades filtradas por semana y configuración de vista' })
-  @ApiParam({ name: 'id_company', example: 'Scalingsoft' })
+  @ApiParam({ name: 'id_company', example: '1' })
   @ApiParam({ name: 'id_entity', example: 'SUCURSAL_001' })
   @ApiParam({ name: 'team', example: 'Tecnología' })
   @ApiParam({ name: 'id_users', example: '1,2,3' })

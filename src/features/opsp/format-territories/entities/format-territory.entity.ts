@@ -7,7 +7,7 @@ export class FormatTerritory {
   @PrimaryGeneratedColumn({ name: 'territory_id' })
   id: number;
 
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @Column({ length: 50 })
   id_company: string;
 
@@ -22,7 +22,7 @@ export class FormatTerritory {
   @Column({ type: 'int', default: 1 })
   status: number;
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @Column({ length: 100, nullable: true })
   created_by: string;
 

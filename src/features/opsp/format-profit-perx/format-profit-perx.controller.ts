@@ -42,14 +42,14 @@ export class FormatProfitPerXController {
     name: 'id_company',
     required: true,
     type: String,
-    example: 'Scalingsoft',
+    example: '1',
     description: 'Company identifier',
   })
   @ApiQuery({
     name: 'id_entity',
     required: true,
     type: String,
-    example: 'Entity001',
+    example: '1',
     description: 'Entity identifier',
   })
   @ApiResponse({
@@ -60,7 +60,7 @@ export class FormatProfitPerXController {
         data: [
           {
             id: 1,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             profit_per_x_definition: 'Ganancia por cliente',
             status: 1,
             created_by: 'admin',
@@ -91,7 +91,7 @@ export class FormatProfitPerXController {
       example: {
         data: {
           id: 1,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           profit_per_x_definition: 'Ganancia por cliente',
           status: 1,
           created_by: 'admin',

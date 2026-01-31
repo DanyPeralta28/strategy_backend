@@ -39,7 +39,7 @@ export class FormatPaceController {
 
   @Get()
   @ApiOperation({ summary: 'Get visible Format Pace records for a company (bosses/admins/teammates/self)' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiQuery({ name: 'requester_user_id', required: true, example: 13474 })
   @ApiQuery({
     name: 'id_entity',
@@ -56,17 +56,17 @@ export class FormatPaceController {
         data: [
           {
             id: 2,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             process_name: 'Invoice Processing',
             person_in_charge_name: 'James Smith',
             kpi_list: [{ kpi: 'Cycle Time (days)', target: 2 }],
             status: 1,
-            created_by: 'admin_user',
+            created_by: '13474',
             created_at: '02/09/2025 20:33:20',
           },
           {
             id: 3,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             process_name: 'Payment Approval',
             person_in_charge_name: 'Jane Smith',
             kpi_list: [{ kpi: 'Approval Time (hrs)', target: 24 }],
@@ -148,12 +148,12 @@ export class FormatPaceController {
       example: {
         data: {
           id: 12,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           process_name: 'Invoice Processing',
           person_in_charge_name: 'John Doe',
           kpi_list: [{ kpi: 'Cycle Time (days)', target: 2 }],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z',
         },
         message: 'OK',
@@ -185,7 +185,7 @@ export class FormatPaceController {
         person_in_charge_name: 'Jane Smith',
         kpi_list: [{ kpi: 'Approval Time (hrs)', target: 24 }],
         status: 1,
-        created_by: 'admin_user',
+        created_by: '13474',
       },
     },
   })

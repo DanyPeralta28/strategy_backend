@@ -16,7 +16,7 @@ export class CashFormatOptcashController {
   @ApiBody({
     schema: {
       example: {
-        id_company: 'Scalingsoft',
+        id_company: '1',
         ideas: [
           {
             letter: 'A',
@@ -60,7 +60,7 @@ export class CashFormatOptcashController {
           }
         ],
         status: 1,
-        created_by: 'admin_user'
+        created_by: '13474'
       }
     }
   })
@@ -80,7 +80,7 @@ export class CashFormatOptcashController {
 
   @Get()
   @ApiOperation({ summary: 'Get all Optcash records for a company' })
-  @ApiQuery({ name: 'id_company', required: true, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Optcash formats retrieved',
@@ -88,7 +88,7 @@ export class CashFormatOptcashController {
       example: {
         data: [{
           id: 7,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           idea_a_list: [
             { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' }
           ],
@@ -108,7 +108,7 @@ export class CashFormatOptcashController {
             // B, C, D…
           ],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z'
         }],
         message: 'OK',
@@ -135,7 +135,7 @@ export class CashFormatOptcashController {
       example: {
         data: {
           id: 7,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           idea_a_list: [
             { idea: 'Mejorar lead scoring', reduction: '', errors: '', gap: '' }
           ],
@@ -154,7 +154,7 @@ export class CashFormatOptcashController {
             // B, C, D…
           ],
           status: 1,
-          created_by: 'admin_user',
+          created_by: '13474',
           created_at: '2025-08-11T08:33:00.000Z'
         },
         message: 'OK',
@@ -219,7 +219,7 @@ export class CashFormatOptcashController {
           }
         ],
         status: 1,
-        created_by: 'admin_user'
+        created_by: '13474'
       }
     }
   })

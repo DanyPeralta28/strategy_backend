@@ -45,7 +45,7 @@ export class FormatStratasController {
   @Get(':id')
   @ApiOperation({ summary: 'Get a format strata by ID and company' })
   @ApiParam({ name: 'id', type: Number, example: 1 })
-  @ApiQuery({ name: 'id_company', type: String, example: 'Scalingsoft' })
+  @ApiQuery({ name: 'id_company', type: String, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'Format strata found',
@@ -53,7 +53,7 @@ export class FormatStratasController {
       example: {
         data: {
           id: 1,
-          id_company: 'Scalingsoft',
+          id_company: '1',
           own_words: 'Texto...',
         },
         message: 'OK',
@@ -70,8 +70,8 @@ export class FormatStratasController {
 
   @Get()
   @ApiOperation({ summary: 'Get all format stratas by company' })
-  @ApiQuery({ name: 'id_company', type: String, required: true, example: 'Scalingsoft' })
-  @ApiQuery({ name: 'id_entity', type: String, required: true, example: 'Entity001' })
+  @ApiQuery({ name: 'id_company', type: String, required: true, example: '1' })
+  @ApiQuery({ name: 'id_entity', type: String, required: true, example: '1' })
   @ApiResponse({
     status: 200,
     description: 'List of format stratas',
@@ -80,7 +80,7 @@ export class FormatStratasController {
         data: [
           {
             id: 1,
-            id_company: 'Scalingsoft',
+            id_company: '1',
             own_words: 'Texto...',
           },
         ],

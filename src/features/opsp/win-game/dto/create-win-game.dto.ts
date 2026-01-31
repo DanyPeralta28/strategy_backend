@@ -8,12 +8,12 @@ import {
 } from 'class-validator';
 
 export class CreateWinGameDto {
-  @ApiProperty({ example: 'Scalingsoft', description: 'Company identifier' })
+  @ApiProperty({ example: '1', description: 'Company identifier' })
   @IsString()
   @MaxLength(50)
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', description: 'Entity identifier', required: false })
+  @ApiProperty({ example: '1', description: 'Entity identifier', required: false })
   @IsOptional()
   @IsString()
   @MaxLength(50)
@@ -83,7 +83,7 @@ export class CreateWinGameDto {
   status: number;
 
   @ApiProperty({
-    example: 'admin_user',
+    example: '13474',
     description: 'User that created the record',
   })
   @IsString()

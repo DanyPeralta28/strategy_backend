@@ -2,7 +2,7 @@ import { IsString, MaxLength, IsOptional, IsArray } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatTerritoryDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   @MaxLength(50)
   id_company: string;
@@ -54,7 +54,7 @@ export class CreateFormatTerritoryDto {
   @IsArray()
   geographic_location?: any[];
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsOptional()
   @IsString()
   @MaxLength(100)

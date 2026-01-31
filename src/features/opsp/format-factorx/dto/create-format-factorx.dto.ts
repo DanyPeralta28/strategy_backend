@@ -2,11 +2,11 @@ import { IsString, IsArray, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateFormatFactorXDto {
-  @ApiProperty({ example: 'Scalingsoft' })
+  @ApiProperty({ example: '1' })
   @IsString()
   id_company: string;
 
-  @ApiProperty({ example: 'Entity001', required: false })
+  @ApiProperty({ example: '1', required: false })
   @IsOptional()
   @IsString()
   id_entity?: string;
@@ -43,7 +43,7 @@ export class CreateFormatFactorXDto {
   @IsOptional()
   trade_action_list?: any[];
 
-  @ApiProperty({ example: 'admin_user' })
+  @ApiProperty({ example: '13474' })
   @IsString()
   created_by: string;
 }
